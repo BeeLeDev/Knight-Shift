@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Bar" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.95); -unity-text-outline-color: rgba(0, 0, 0, 0); height: 100px; width: 194px; min-width: 0; min-height: 0; max-height: 50px; max-width: 999px; align-items: center; flex-direction: row; justify-content: space-around;">
+        <ui:VisualElement name="Health" style="flex-grow: 1; background-color: rgb(173, 61, 130); width: 50px; height: 50px; max-height: 25px; max-width: 25px; flex-direction: column;" />
+        <ui:VisualElement name="Health" style="flex-grow: 1; background-color: rgb(173, 61, 130); width: 50px; height: 50px; max-height: 25px; max-width: 25px; flex-direction: column;" />
+        <ui:VisualElement name="Health" style="flex-grow: 1; background-color: rgb(173, 61, 130); width: 50px; height: 50px; max-height: 25px; max-width: 25px; flex-direction: column;" />
+    </ui:VisualElement>
+</ui:UXML>
