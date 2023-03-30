@@ -3,24 +3,48 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
-    PlayerClass playerClass;
-    public float stopSpeed = 1.0f;
+    [HideInInspector]
+    public PlayerClass playerClass;
+    public PlayerAttack playerAttack;
+    [HideInInspector]
+    public SpriteRenderer sprite;
 
     private void Start() {
         playerClass = GetComponent<PlayerClass>();
-        
+        playerAttack = GetComponent<PlayerAttack>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         // inputs to move horizontally
-        float horizontalInput= Input.GetAxisRaw("Horizontal");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
         // inputs to move vertically
-        float verticalInput= Input.GetAxisRaw("Vertical");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
         // Move the player
-        transform.Translate(new Vector2(horizontalInput, verticalInput) * playerClass.moveSpeed * Time.deltaTime);
+        if (playerCanMove())
+        {
+            // keeps track of which side the Player is facing (true) Left, or (false) Right
+            // by default i will make the Player always face right in the beginning
+            if (horizontalInput > 0)
+            {
+            //Debug.Log(horizontalInput);
+            sprite.flipX = false;
+            }
+            else if (horizontalInput < 0)
+            {
+                sprite.flipX = true;
+            }
+
+            transform.Translate(new Vector2(horizontalInput, verticalInput) * playerClass.moveSpeed * Time.deltaTime);
+        }
+    }
+
+    // if the Player is not attacking, they can move
+    private bool playerCanMove()
+    {
+        return !playerAttack.isAttacking;
     }
 
 }
