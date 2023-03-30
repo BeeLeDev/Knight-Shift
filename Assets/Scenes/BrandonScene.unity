@@ -229,7 +229,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 820379388}
-  customCamera: {fileID: 382259424}
   smoothTime: 0.1
 --- !u!1 &395619368
 GameObject:
@@ -241,8 +240,9 @@ GameObject:
   m_Component:
   - component: {fileID: 395619372}
   - component: {fileID: 395619371}
-  - component: {fileID: 395619370}
   - component: {fileID: 395619369}
+  - component: {fileID: 395619370}
+  - component: {fileID: 395619373}
   m_Layer: 0
   m_Name: Square
   m_TagString: Obstacle
@@ -389,6 +389,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &395619373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395619368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91e038a1b6b07544ba261a40a4ad84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,8 +632,8 @@ GameObject:
   m_Component:
   - component: {fileID: 820379391}
   - component: {fileID: 820379390}
-  - component: {fileID: 820379393}
   - component: {fileID: 820379394}
+  - component: {fileID: 820379393}
   - component: {fileID: 820379396}
   - component: {fileID: 820379397}
   m_Layer: 0
@@ -799,8 +811,8 @@ GameObject:
   - component: {fileID: 992900932}
   - component: {fileID: 992900931}
   - component: {fileID: 992900930}
-  - component: {fileID: 992900933}
   - component: {fileID: 992900934}
+  - component: {fileID: 992900933}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Obstacle
