@@ -4,13 +4,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [HideInInspector]
-    public PlayerClass playerClass;
+    public Player playerClass;
     public PlayerAttack playerAttack;
     [HideInInspector]
     public SpriteRenderer sprite;
 
     private void Start() {
-        playerClass = GetComponent<PlayerClass>();
+        playerClass = GetComponent<Player>();
         playerAttack = GetComponent<PlayerAttack>();
         sprite = GetComponent<SpriteRenderer>();
     }

@@ -17,7 +17,7 @@ public class CameraMovement : MonoBehaviour
             player.transform.position.y, 
             transform.position.z), 
             // don't know why we need velocity, but we want to use the Player's velocity cause they have a RigidBody which keeps velocity somewhere probably
-            ref player.GetComponent<PlayerClass>().velocity, 
+            ref player.GetComponent<Player>().velocity, 
             smoothTime);
 
         // Move the camera to follow the player

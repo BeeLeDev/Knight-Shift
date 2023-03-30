@@ -3,3 +3,5 @@ https://docs.unity3d.com/ScriptReference/Vector3.SmoothDamp.html
 https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
 
 https://docs.unity3d.com/ScriptReference/Input.GetMouseButton.html
+
+https://docs.unity3d.com/ScriptReference/Rigidbody2D.GetContacts.html
