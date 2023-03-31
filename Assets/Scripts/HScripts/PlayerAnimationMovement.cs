@@ -14,6 +14,11 @@ public class PlayerAnimationMovement : MonoBehaviour
     bool isRight = true;
     bool isLeft;
 
+    private void Start() {
+        rb = this.GetComponent<Rigidbody2D>();
+        animator = this.GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
