@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class CollisionDamage : MonoBehaviour
 {
+    // damage the collider does to Characters
+    public int damage;
     private bool canDamage = true;
     private void OnCollisionEnter2D(Collision2D other) 
     {
         //GameObject health = GameObject.Find("Health");
-        if (canDamage)
-        {
-            StartCoroutine(DamageBuffer());
-            canDamage = false;
-            --other.gameObject.GetComponent<Player>().health;
-        }
-        Debug.Log(other.gameObject.GetComponent<Player>().health);
-    }
-
-    IEnumerator DamageBuffer()
-    {
-        yield return new WaitForSeconds(1);
-        canDamage = true;
+        other.gameObject.GetComponent<Character>().TakeDamage(1);
+        Debug.Log(other.gameObject.GetComponent<Character>().health);
     }
 }
