@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad232dd04a0aba54a95208142d0138e7
+guid: 0c23133affee80146b3adf612d100390
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Roll_0
+      name: Attack 1L_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d94333d2f31c0df448f75687944ffe40
-      internalID: -895535925
+      spriteID: 35dce7d2d2d5852438df4558b1bcfd31
+      internalID: -1489081466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_1
+      name: Attack 1L_1
       rect:
         serializedVersion: 2
-        x: 22
+        x: 40
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74acf0a33835e634ead676ad0870326d
-      internalID: -123948386
+      spriteID: c948ce55ce75e2044b69148645711d81
+      internalID: 486298736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_2
+      name: Attack 1L_2
       rect:
         serializedVersion: 2
-        x: 44
+        x: 80
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14fb414ec3c91cb4b9e234cd15be424a
-      internalID: -774162497
+      spriteID: 70f06e50aae64354993494cd583ab0fd
+      internalID: 1233128657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_3
+      name: Attack 1L_3
       rect:
         serializedVersion: 2
-        x: 66
+        x: 120
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d02a510a7d93fb740a2bc76ae03f4e96
-      internalID: -441570944
+      spriteID: 1e15fcde1e59aa045b92e0ff7f3e9258
+      internalID: 2119358818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_4
+      name: Attack 1L_4
       rect:
         serializedVersion: 2
-        x: 88
+        x: 160
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64cee0bbcc5799946a8e0122c635110b
-      internalID: -1469447520
+      spriteID: 80368b33ef29b854fbdbe3338df175d3
+      internalID: -118536971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_5
+      name: Attack 1L_5
       rect:
         serializedVersion: 2
-        x: 110
+        x: 200
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 396873b9a4cd8a2418de2eda34f24fc3
-      internalID: 620920315
+      spriteID: 06e6a8bc323f16f4cbe845143147263f
+      internalID: -1142515572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_6
+      name: Attack 1L_6
       rect:
         serializedVersion: 2
-        x: 132
+        x: 240
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fbc6cf9edb4d5c4da21c01e9122b432
-      internalID: -1826737681
+      spriteID: b01a1f880e6b5da449a361b0b97e7058
+      internalID: -302886192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_7
+      name: Attack 1L_7
       rect:
         serializedVersion: 2
-        x: 154
+        x: 280
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,20 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5775ab0d4b88ab42b949b2c529827c3
-      internalID: 179160961
+      spriteID: caaf2d0b90b4f7f4fad421006ce632f8
+      internalID: -842094016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_8
+      name: Attack 1L_8
       rect:
         serializedVersion: 2
-        x: 176
+        x: 320
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2af18ed14beeab42a41564d9a0e92ad
-      internalID: -1807513715
+      spriteID: 05c4cec8b00cb564f8d34df64c167ee1
+      internalID: 1149159892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_9
+      name: Attack 1L_9
       rect:
         serializedVersion: 2
-        x: 198
+        x: 360
         y: 0
-        width: 22
-        height: 24
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,29 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e6433e3ab139b24d97acb8dc198a35d
-      internalID: -1802381869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Roll_10
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 0
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27ad7cafc44476b44bcad017a574d4cb
-      internalID: -581763736
+      spriteID: 5ba96e6722a108d42a8cb5943c874cdc
+      internalID: -247375342
       vertices: []
       indices: 
       edges: []
@@ -358,17 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Roll_5: 620920315
-      Roll_0: -895535925
-      Roll_3: -441570944
-      Roll_2: -774162497
-      Roll_8: -1807513715
-      Roll_10: -581763736
-      Roll_6: -1826737681
-      Roll_1: -123948386
-      Roll_9: -1802381869
-      Roll_4: -1469447520
-      Roll_7: 179160961
+      Attack 1L_8: 1149159892
+      Attack 1L_6: -302886192
+      Attack 1L_0: -1489081466
+      Attack 1L_3: 2119358818
+      Attack 1L_7: -842094016
+      Attack 1L_9: -247375342
+      Attack 1L_1: 486298736
+      Attack 1L_4: -118536971
+      Attack 1L_5: -1142515572
+      Attack 1L_2: 1233128657
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

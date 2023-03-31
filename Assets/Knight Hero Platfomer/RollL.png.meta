@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad232dd04a0aba54a95208142d0138e7
+guid: 51c9aff2af70fbe48b5c45bd105e3b4a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Roll_0
+      name: RollL_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d94333d2f31c0df448f75687944ffe40
-      internalID: -895535925
+      spriteID: bf2215add2adef743846eeb9fa97eda9
+      internalID: 196961146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_1
+      name: RollL_1
       rect:
         serializedVersion: 2
         x: 22
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74acf0a33835e634ead676ad0870326d
-      internalID: -123948386
+      spriteID: 597f9d701cae7794a9a01ebf6d932f3b
+      internalID: 946570836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_2
+      name: RollL_2
       rect:
         serializedVersion: 2
         x: 44
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14fb414ec3c91cb4b9e234cd15be424a
-      internalID: -774162497
+      spriteID: 44b8a781881c400459a3df0f88df0703
+      internalID: 809982605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_3
+      name: RollL_3
       rect:
         serializedVersion: 2
         x: 66
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d02a510a7d93fb740a2bc76ae03f4e96
-      internalID: -441570944
+      spriteID: d0dc66499d07ff440827c1ff3634f1a7
+      internalID: -52006765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_4
+      name: RollL_4
       rect:
         serializedVersion: 2
         x: 88
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64cee0bbcc5799946a8e0122c635110b
-      internalID: -1469447520
+      spriteID: b4d216c8285a22047aeaed2d3706c7c7
+      internalID: 893712261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_5
+      name: RollL_5
       rect:
         serializedVersion: 2
         x: 110
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 396873b9a4cd8a2418de2eda34f24fc3
-      internalID: 620920315
+      spriteID: af6f04cb1d516d346aaa0abbea22156b
+      internalID: -1429709693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_6
+      name: RollL_6
       rect:
         serializedVersion: 2
         x: 132
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fbc6cf9edb4d5c4da21c01e9122b432
-      internalID: -1826737681
+      spriteID: 19dd88d8de26c86468ffca85fefd2c83
+      internalID: -1083530095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_7
+      name: RollL_7
       rect:
         serializedVersion: 2
         x: 154
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5775ab0d4b88ab42b949b2c529827c3
-      internalID: 179160961
+      spriteID: 85c3835b7e5629f44875b91529564637
+      internalID: 287822393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_8
+      name: RollL_8
       rect:
         serializedVersion: 2
         x: 176
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2af18ed14beeab42a41564d9a0e92ad
-      internalID: -1807513715
+      spriteID: be7e2471df410ca458b2d9785e174ab6
+      internalID: -771560122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_9
+      name: RollL_9
       rect:
         serializedVersion: 2
         x: 198
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e6433e3ab139b24d97acb8dc198a35d
-      internalID: -1802381869
+      spriteID: 6f420a72d6f5b6f4fb3928a1b259a393
+      internalID: 761783043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Roll_10
+      name: RollL_10
       rect:
         serializedVersion: 2
         x: 220
@@ -341,8 +341,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27ad7cafc44476b44bcad017a574d4cb
-      internalID: -581763736
+      spriteID: b63777a1b7d3bea43826f35854ecc38f
+      internalID: 496096414
       vertices: []
       indices: 
       edges: []
@@ -358,17 +358,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Roll_5: 620920315
-      Roll_0: -895535925
-      Roll_3: -441570944
-      Roll_2: -774162497
-      Roll_8: -1807513715
-      Roll_10: -581763736
-      Roll_6: -1826737681
-      Roll_1: -123948386
-      Roll_9: -1802381869
-      Roll_4: -1469447520
-      Roll_7: 179160961
+      RollL_1: 946570836
+      RollL_5: -1429709693
+      RollL_10: 496096414
+      RollL_6: -1083530095
+      RollL_3: -52006765
+      RollL_8: -771560122
+      RollL_4: 893712261
+      RollL_7: 287822393
+      RollL_9: 761783043
+      RollL_0: 196961146
+      RollL_2: 809982605
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
