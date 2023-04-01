@@ -1,9 +1,6 @@
-https://docs.unity3d.com/ScriptReference/Vector3.SmoothDamp.html
+Knight Sprite
+https://pixivan.itch.io/knight-hero-platfor
 
-https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
-
-https://docs.unity3d.com/ScriptReference/Input.GetMouseButton.html
-
-https://docs.unity3d.com/ScriptReference/Rigidbody2D.GetContacts.html
-
-https://learn.unity.com/tutorial/overriding
+For Top Down Movement
+https://www.youtube.com/watch?v=whzomFgjT50
+https://www.youtube.com/watch?v=u8tot-X_RBI
