@@ -88,12 +88,12 @@ public class PlayerAttack : MonoBehaviour
             // this rotates all, need to figure out how to rotate it once
             hitbox.transform.RotateAround(transform.position, Vector3.up, 180f);
            // hitbox.transform.RotateAround(hitbox.transform.position, Vector3.right, 180f);
-            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x - 0.474f, transform.position.y - 0.052f, 0), hitbox.transform.rotation);
+            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x - (0.509f * 1.2f), transform.position.y - 0.062f, 0), hitbox.transform.rotation);
         }
         // facing right
         else
         {
-            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x + 0.474f, transform.position.y - 0.052f, 0), hitbox.transform.rotation);
+            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x + (0.509f * 1.2f) , transform.position.y - 0.062f, 0), hitbox.transform.rotation);
         }
     }
 
