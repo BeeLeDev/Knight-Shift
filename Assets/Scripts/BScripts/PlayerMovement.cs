@@ -9,15 +9,13 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerAttack playerAttack;
     [HideInInspector]
-    public SpriteRenderer sprite;
-    [HideInInspector]
 
     private Animator animator;
+    private bool isFlipped = false;
 
     private void Start() {
         player = gameObject.GetComponent<Player>();
         playerAttack = gameObject.GetComponent<PlayerAttack>();
-        sprite = GetComponent<SpriteRenderer>();
         animator = this.GetComponent<Animator>();
     }
 
@@ -27,41 +25,48 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         // inputs to move vertically
         float verticalInput = Input.GetAxisRaw("Vertical");
-
-        animator.SetFloat("Horizontal", horizontalInput);
-        animator.SetFloat("Vertical", verticalInput);
+        
         animator.SetFloat("Speed", new Vector2(horizontalInput, verticalInput).sqrMagnitude);
 
-
         // Move the player
-        if (playerCanMove())
+        if (PlayerCanMove())
         {
             // keeps track of which side the Player is facing (true) Left, or (false) Right
             // by default i will make the Player always face right in the beginning
-            if (horizontalInput > 0)
+            // the reason i use RotateAround() instead of flipping the sprite, is so the collider can flip along with the Player, otherwise the collider would stay the same if the sprite is flipped
+            if (horizontalInput > 0 && GetIsFlipped())
             {
-                //Debug.Log(horizontalInput);
-                //sprite.flipX = false;
-                animator.ResetTrigger("isLeft");
-                animator.SetTrigger("isRight");
-                
+                isFlipped = false;
+                transform.RotateAround(transform.position, Vector3.up, 180f);
+
             }
-            else if (horizontalInput < 0)
+            else if (horizontalInput < 0 && !GetIsFlipped())
             {
-                //sprite.flipX = true;
-                animator.ResetTrigger("isRight");
-                animator.SetTrigger("isLeft");
-                
+                isFlipped = true;
+                transform.RotateAround(transform.position, Vector3.up, 180f);
             }
 
-            transform.Translate(new Vector2(horizontalInput, verticalInput) * player.moveSpeed * Time.deltaTime);
+            if (GetIsFlipped())
+            {
+                transform.Translate(new Vector2(-horizontalInput, verticalInput) * player.moveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(new Vector2(horizontalInput, verticalInput) * player.moveSpeed * Time.deltaTime);
+            }
         }
     }
 
     // if the Player is not attacking, they can move
-    private bool playerCanMove()
+    private bool PlayerCanMove()
     {
-        return !playerAttack.isAttacking;
+        return !playerAttack.GetIsAttacking();
+    }
+
+    // if the Player is flipped, they are looking to the left
+    public bool GetIsFlipped()
+    {
+        return isFlipped;
     }
 
 }
