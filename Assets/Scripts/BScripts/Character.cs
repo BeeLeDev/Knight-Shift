@@ -29,8 +29,13 @@ public class Character : MonoBehaviour
         }
     }
 
-    IEnumerator ColorChange(Color color)
+    // if the player survives damage, change color
+    // if player does not survive damage, death animation
+    IEnumerator StatusController()
     {
+        // change sprite to red hue for brief moment
+        // change it back to original
+        Color originalColor = sprite.color;
         // change color to red
         sprite.color = new Color(.9f, .2f, .2f);
 
@@ -38,7 +43,7 @@ public class Character : MonoBehaviour
         {
             yield return new WaitForSeconds(0.35f);
             // change back to specified color
-            this.sprite.color = color;
+            this.sprite.color = originalColor;
         }
         else
         {
@@ -47,11 +52,13 @@ public class Character : MonoBehaviour
             // remove the Player's movement, they are dead, they shouldn't move
             if (gameObject.GetComponent<PlayerMovement>())
             {
+                //TODO: Get the player to stop moving when they are killed
+                transform.GetComponent<Animator>().Play("Idle", 0);
                 Destroy(gameObject.GetComponent<PlayerMovement>());
+                Destroy(gameObject.GetComponent<PlayerAttack>());
             }
             yield return new WaitForSeconds(5f);
             // "kill" the character
-            // can add an animation here r
             Destroy(gameObject);
         }
     }
@@ -64,11 +71,7 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         this.health -= damage;
-
-        // change sprite to red hue for brief moment
-        // change it back to original
-        Color originalColor = sprite.color;
-        StartCoroutine(ColorChange(originalColor));
+        StartCoroutine(StatusController());
     }
 
     // this can be changeable to have a default death animation, but most likely all enemies will have different death animations
