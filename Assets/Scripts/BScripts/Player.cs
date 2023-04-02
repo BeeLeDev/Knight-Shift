@@ -10,11 +10,13 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
-        health = 3;
-        damage = 1;
-        moveSpeed = 5.0f;
+        rb = this.GetComponent<Rigidbody2D>();
+        sprite = this.GetComponent<SpriteRenderer>();
+        //playerDodge = this.GetComponent<PlayerDodge>();
+
+        //health = 3;
+        //damage = 1;
+        //moveSpeed = 5.0f;
     }
 
     protected override void PlayDeathAnimation()

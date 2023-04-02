@@ -7,24 +7,24 @@ public class PlayerMovement : MonoBehaviour
     public Player player;
     [HideInInspector]
 
-    public PlayerAttack playerAttack;
-    [HideInInspector]
-
     private Animator animator;
     private bool isFlipped = false;
+    // inputs to move horizontally
+    public float horizontalInput;
+    // inputs to move vertically
+    public float verticalInput;
 
     private void Start() {
-        player = gameObject.GetComponent<Player>();
-        playerAttack = gameObject.GetComponent<PlayerAttack>();
+        player = this.GetComponent<Player>();
         animator = this.GetComponent<Animator>();
     }
 
     void Update()
     {
         // inputs to move horizontally
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         // inputs to move vertically
-        float verticalInput = Input.GetAxisRaw("Vertical");
+        verticalInput = Input.GetAxisRaw("Vertical");
         
         animator.SetFloat("Speed", new Vector2(horizontalInput, verticalInput).sqrMagnitude);
 
@@ -60,7 +60,17 @@ public class PlayerMovement : MonoBehaviour
     // if the Player is not attacking, they can move
     private bool PlayerCanMove()
     {
-        return !playerAttack.GetIsAttacking();
+        // if there is a specific action being done, the player can't move
+        // actions that restrict movement: attacking, dodging
+        if (this.GetComponent<PlayerAttack>().GetIsAttacking())
+        {
+            return !this.GetComponent<PlayerAttack>().GetIsAttacking();
+        }
+        else if (this.GetComponent<PlayerDodge>().GetIsDodging())
+        {
+            return !this.GetComponent<PlayerDodge>().GetIsDodging();
+        }
+        return true;
     }
 
     // if the Player is flipped, they are looking to the left

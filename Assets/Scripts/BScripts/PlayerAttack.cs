@@ -10,17 +10,13 @@ public class PlayerAttack : MonoBehaviour
     [HideInInspector]
     PlayerMovement playerMovement;
     [HideInInspector]
-    SpriteRenderer sprite;
-    [HideInInspector]
     Animator animator;
-    // public since it's being used in PlayerMovement.cs
     [HideInInspector]
-    private bool mouseButtonHeld = false;
+    private bool leftMouseButtonHeld = false;
 
     private void Start() {
         playerMovement = this.GetComponent<PlayerMovement>();
         animator = this.GetComponent<Animator>();
-        sprite = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,9 +27,9 @@ public class PlayerAttack : MonoBehaviour
         {
             // check if the hitbox collided with anything
             // if so deal damage to that object that collided with the attack
-            if (!GetIsAttacking() && !mouseButtonHeld) 
+            if (!GetIsAttacking() && !leftMouseButtonHeld) 
             {
-                mouseButtonHeld = true;
+                leftMouseButtonHeld = true;
                 SetIsAttacking(1);
             }
             //StartCoroutine(WaitForAnimationFinish(.5f));
@@ -44,21 +40,8 @@ public class PlayerAttack : MonoBehaviour
         // checks to see if the Player lifted mouse indicating they are not holding the left button
         if (Input.GetMouseButtonUp(0))
         {
-            mouseButtonHeld = false;
+            leftMouseButtonHeld = false;
         }
-    }
-
-    // prevents attack spamming    
-    IEnumerator WaitForAnimationFinish(int framesToWait)
-    {
-        
-        //for (int i = 0; i < framesToWait; i++)
-        //{
-            yield return new WaitForEndOfFrame();
-        //}
-        
-        animator.SetBool("isAttacking", false);
-        //Debug.Log("can attack");
     }
 
     // this is used in the animation as a function event for KnightA1
@@ -80,6 +63,7 @@ public class PlayerAttack : MonoBehaviour
         return animator.GetBool("isAttacking");
     }
 
+    // used in event function
     private void CreateHitbox()
     {
         // facing left
@@ -97,6 +81,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    // used in event function
     private void DeleteHitbox()
     {
         // if a hitbox exists, destroy it

@@ -53,7 +53,9 @@ public class Character : MonoBehaviour
             if (gameObject.GetComponent<PlayerMovement>())
             {
                 //TODO: Get the player to stop moving when they are killed
+                // or get a death animation and run that if health is 0
                 transform.GetComponent<Animator>().Play("Idle", 0);
+
                 Destroy(gameObject.GetComponent<PlayerMovement>());
                 Destroy(gameObject.GetComponent<PlayerAttack>());
             }
