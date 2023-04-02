@@ -5,15 +5,22 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    public GameObject weapon;
+    public GameObject hitbox;
+    private GameObject existingHitbox;
     [HideInInspector]
     PlayerMovement playerMovement;
     [HideInInspector]
-    public bool isAttacking = false;
+    SpriteRenderer sprite;
+    [HideInInspector]
+    Animator animator;
+    // public since it's being used in PlayerMovement.cs
+    [HideInInspector]
     private bool mouseButtonHeld = false;
 
     private void Start() {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = this.GetComponent<PlayerMovement>();
+        animator = this.GetComponent<Animator>();
+        sprite = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -22,33 +29,19 @@ public class PlayerAttack : MonoBehaviour
         // left click
         if (Input.GetMouseButtonDown(0))
         {
-            // this function will play an attack animation
             // check if the hitbox collided with anything
             // if so deal damage to that object that collided with the attack
-    
-            //**THIS IS FOR DEMONSTRATION PURPOSES**
-            if (!isAttacking && !mouseButtonHeld) {
-                isAttacking = true;
-                StartCoroutine(Debounce());
-                if (playerMovement.sprite.flipX)
-                {
-                    Instantiate(weapon, new Vector2((-1) + transform.position.x, transform.position.y), weapon.transform.rotation).transform.SetParent(transform);
-                    
-                }
-                else
-                {
-                    Instantiate(weapon, new Vector2(1 + transform.position.x, transform.position.y), weapon.transform.rotation).transform.SetParent(transform);
-                }
-                //Debug.Log(("no attack"));
+            if (!GetIsAttacking() && !mouseButtonHeld) 
+            {
+                mouseButtonHeld = true;
+                SetIsAttacking(1);
             }
+            //StartCoroutine(WaitForAnimationFinish(.5f));
+            //StartCoroutine(WaitForAnimationFinish(9));
+            //Debug.Log(("no attack"));
         }
 
-        // check if the mouse is being held down
-        if (Input.GetMouseButtonDown(0))
-        {
-            mouseButtonHeld = true;
-        }
-
+        // checks to see if the Player lifted mouse indicating they are not holding the left button
         if (Input.GetMouseButtonUp(0))
         {
             mouseButtonHeld = false;
@@ -56,10 +49,60 @@ public class PlayerAttack : MonoBehaviour
     }
 
     // prevents attack spamming    
-    IEnumerator Debounce()
+    IEnumerator WaitForAnimationFinish(int framesToWait)
     {
-        yield return new WaitForSeconds(.25f);
-        isAttacking = false;
-        //Debug.Log("attack");
+        
+        //for (int i = 0; i < framesToWait; i++)
+        //{
+            yield return new WaitForEndOfFrame();
+        //}
+        
+        animator.SetBool("isAttacking", false);
+        //Debug.Log("can attack");
+    }
+
+    // this is used in the animation as a function event for KnightA1
+    // for some reason Unity doesn't accept functions with bool parameters as function events so i am changing it to an int
+    public void SetIsAttacking(int flag)
+    {
+        if(flag == 1)
+        {
+            animator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
+        }
+    }
+
+    public bool GetIsAttacking()
+    {
+        return animator.GetBool("isAttacking");
+    }
+
+    private void CreateHitbox()
+    {
+        // facing left
+        if (playerMovement.GetIsFlipped())
+        {
+            // this rotates all, need to figure out how to rotate it once
+            hitbox.transform.RotateAround(transform.position, Vector3.up, 180f);
+           // hitbox.transform.RotateAround(hitbox.transform.position, Vector3.right, 180f);
+            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x - 0.474f, transform.position.y - 0.052f, 0), hitbox.transform.rotation);
+        }
+        // facing right
+        else
+        {
+            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x + 0.474f, transform.position.y - 0.052f, 0), hitbox.transform.rotation);
+        }
+    }
+
+    private void DeleteHitbox()
+    {
+        // if a hitbox exists, destroy it
+        if (existingHitbox)
+        {
+            Destroy(existingHitbox);
+        }
     }
 }

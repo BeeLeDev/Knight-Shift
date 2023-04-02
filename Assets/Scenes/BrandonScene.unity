@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afed706b8ca44bd41b898932e827c07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1841583786}
+  player: {fileID: 820379388}
   smoothTime: 0.1
 --- !u!1 &395619368
 GameObject:
@@ -952,8 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13495aec222095a4f8f4e135c93c3851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 5946236233888154130, guid: 4ef40a9b44055464ca4f35b07a0270e4, type: 3}
-  isAttacking: 0
+  hitbox: {fileID: 0}
 --- !u!114 &820379400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,7 +967,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerAttack: {fileID: 0}
-  sprite: {fileID: 0}
 --- !u!1 &992900929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,11 +1295,11 @@ GameObject:
   - component: {fileID: 1841583794}
   - component: {fileID: 1841583793}
   - component: {fileID: 1841583792}
+  - component: {fileID: 1841583795}
   - component: {fileID: 1841583791}
   - component: {fileID: 1841583789}
   - component: {fileID: 1841583788}
-  - component: {fileID: 1841583787}
-  - component: {fileID: 1841583795}
+  - component: {fileID: 1841583796}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Untagged
@@ -1309,20 +1307,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1841583787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841583786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13495aec222095a4f8f4e135c93c3851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 5946236233888154130, guid: 4ef40a9b44055464ca4f35b07a0270e4, type: 3}
-  isAttacking: 0
 --- !u!114 &1841583788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,7 +1321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerAttack: {fileID: 0}
-  sprite: {fileID: 0}
 --- !u!114 &1841583789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,7 +1374,7 @@ Animator:
   m_GameObject: {fileID: 1841583786}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0fc066ef5b8b9984cb44474861dab244, type: 2}
+  m_Controller: {fileID: 9100000, guid: 184b827fc1445df468edc1af61c35d9e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1441,7 +1424,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 162081017, guid: 5ad7e73df7c44f24996471093e6591e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1461,7 +1444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841583786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.435063, y: -0.5348394, z: 0}
+  m_LocalPosition: {x: -5.637, y: -0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1512,13 +1495,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.03125, y: 0.34375}
-      - {x: -0.1875, y: 0.34375}
-      - {x: -0.34375, y: 0.28125}
-      - {x: -0.34375, y: -0.3125}
-      - {x: -0.3125, y: -0.375}
-      - {x: 0.1875, y: -0.375}
-      - {x: 0.3125, y: -0.28125}
-      - {x: 0.3125, y: -0.125}
-      - {x: 0.25, y: 0.0625}
+    - - {x: 0.040643692, y: 0.011578321}
+      - {x: 0.040114403, y: 0.20203221}
+      - {x: -0.06304312, y: 0.28859746}
+      - {x: -0.19283724, y: 0.28859743}
+      - {x: -0.31884193, y: 0.28836644}
+      - {x: -0.3188424, y: -0.3071627}
+      - {x: -0.25734758, y: -0.37855822}
+      - {x: 0.09676504, y: -0.37855828}
+      - {x: 0.25378942, y: -0.21929306}
+      - {x: 0.2524929, y: -0.11320627}
+      - {x: 0.1930685, y: 0.010905743}
   m_UseDelaunayMesh: 0
+--- !u!114 &1841583796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841583786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13495aec222095a4f8f4e135c93c3851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitbox: {fileID: 3043562147254486851, guid: 6b1eafa04f6d24d4eaff2ac781b19181, type: 3}
