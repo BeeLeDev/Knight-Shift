@@ -79,6 +79,20 @@ public class PlayerMovement : MonoBehaviour
         return isFlipped;
     }
 
+    // used in event functions
+    // this will allow us to determine whether we dodge left or right
+    public float GetHorizontalInput()
+    {
+        return horizontalInput;
+    }
+
+    // used in event functions
+    // this will allow us to determine whether we dodge up or down
+    public float GetVerticalInput()
+    {
+        return verticalInput;
+    }
+
 }
 
 
