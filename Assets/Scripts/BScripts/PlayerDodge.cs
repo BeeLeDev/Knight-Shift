@@ -11,7 +11,8 @@ public class PlayerDodge : MonoBehaviour
     [HideInInspector]
     private bool rightMouseButtonHeld = false;
     private PolygonCollider2D originalHitbox;
-    // need this to be in global so the result is not stored temporarily
+    // need these to be in global so the result is not stored temporarily
+    private float lastHorizontalKey;
     private float lastVerticalKey;
 
 
@@ -52,27 +53,33 @@ public class PlayerDodge : MonoBehaviour
     // used in event function
     private void MoveDuringRoll()
     {
+        Vector2 dodgeMovement = new Vector2(0, 0);
         // translate the character a certain amount of position
         // GET ORIGINAL X POSITION, FIND ENDING X POSITION, difference should be 1.25f
         // there are 7 frames in the dodge, so each frame should move the Player 0.178f
 
-
-        // move up
+        // moving left or right
+        if (lastHorizontalKey != 0)
+        {
+            dodgeMovement += new Vector2(0.2f, 0);
+        }
+        // moving up
         if (lastVerticalKey > 0)
         {
-            transform.Translate(new Vector2(0,0.2f));
+            dodgeMovement += new Vector2(0, 0.2f);
         }
-        // move down
-        else if (lastVerticalKey < 0)
+        // moving down
+        if (lastVerticalKey < 0)
         {
-            transform.Translate(new Vector2(0,-0.2f));
+            dodgeMovement += new Vector2(0, -0.2f);
         }
-        // move left or right
-        else
+        // not moving, move the direction they are facing
+        if (lastHorizontalKey == 0 && lastVerticalKey == 0)
         {
-            transform.Translate(new Vector2(0.2f,0));
+            dodgeMovement = new Vector2(0.2f, 0);
         }
-        
+        Debug.Log(dodgeMovement);
+        transform.Translate(dodgeMovement);
     }
 
     public void SetIsDodging(int flag)
@@ -92,7 +99,24 @@ public class PlayerDodge : MonoBehaviour
         return animator.GetBool("isDodging");
     }
 
-    // this will allow us to determine whether we dodge up, down, left, or right
+    // used in event functions
+    // this will allow us to determine whether we dodge left or right
+    private void DetectLastHorizontalKey()
+    {
+        if (this.GetComponent<PlayerMovement>().horizontalInput > 0 || this.GetComponent<PlayerMovement>().horizontalInput <= 0)
+        {
+            //Debug.Log("Set Vertical");
+            lastHorizontalKey = this.GetComponent<PlayerMovement>().horizontalInput;
+        }
+        else
+        {
+            //Debug.Log("Set Horizontal");
+            lastHorizontalKey = 0;
+        }
+    }
+
+    // used in event functions
+    // this will allow us to determine whether we dodge up or down
     private void DetectLastVerticalKey()
     {
         if (this.GetComponent<PlayerMovement>().verticalInput > 0 || this.GetComponent<PlayerMovement>().verticalInput <= 0)
@@ -106,4 +130,6 @@ public class PlayerDodge : MonoBehaviour
             lastVerticalKey = 0;
         }
     }
+
+    
 }
