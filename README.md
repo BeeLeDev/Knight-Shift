@@ -15,3 +15,4 @@ The player traverses through different levels in increasing difficulty fighting 
 - Shop/Upgrade system
 - Fast-Paced
 
+Developers: [Brandon Le](https://github.com/oopsuwu), [Joshua Jones](https://github.com/zeekblitz), [Harmeet Singh](https://github.com/HarmeetSingh-001)
