@@ -1,4 +1,4 @@
-# Light-Souls
+# Knight Shift
 ### A 2D Roguelite Boss Rush
 
 A difficult fast-paced 'Dark-Souls' inspired game where the player has to fight through challenging enemies. The game is challenging enough for persistent players to return to obtain and finish the game. As the game progresses the player will be able to upgrade their character and obtain different abilities using the skill tree to change up their style of gameplay. Everything is subject to change as we are not dead set on the game yet.
