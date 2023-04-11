@@ -67,7 +67,7 @@ public class PlayerAttack : MonoBehaviour
     private void CreateHitbox()
     {
         // facing left
-        if (playerMovement.GetIsFlipped())
+        if (gameObject.GetComponent<Player>().GetIsFlipped())
         {
             // this rotates all, need to figure out how to rotate it once
             hitbox.transform.RotateAround(transform.position, Vector3.up, 180f);

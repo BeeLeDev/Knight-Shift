@@ -15,7 +15,7 @@ public class Enemy : Character
     {
         float rotateDirection = 90f;
 
-        if (isFlipped)
+        if (GetIsFlipped())
         {
             rotateDirection *= -1;
         }

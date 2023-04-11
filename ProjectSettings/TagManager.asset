@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
-  - Hit
   - BigEnemy
   - SmallEnemy
+  - Hit
   layers:
   - Default
   - TransparentFX
@@ -15,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - IgnoreAttacks
   - 
   - 
   - 

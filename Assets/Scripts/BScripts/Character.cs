@@ -26,8 +26,8 @@ public class Character : MonoBehaviour
         }
     }
 
-    // if the player survives damage, change color
-    // if player does not survive damage, death animation
+    // if the Character survives damage, change color
+    // if Character does not survive damage, death animation
     IEnumerator OnHit()
     {
         // change sprite to red hue for brief moment
@@ -65,6 +65,17 @@ public class Character : MonoBehaviour
         
         Debug.Log("Character Death");
         gameObject.transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
+    }
+
+     // if the Character is flipped, they are looking to the left
+    public bool GetIsFlipped()
+    {
+        return isFlipped;
+    }
+
+    public void SetIsFlipped(bool isFlipped)
+    {
+        this.isFlipped = isFlipped;
     }
 
     public int GetHealth() 

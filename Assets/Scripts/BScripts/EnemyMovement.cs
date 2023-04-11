@@ -42,10 +42,4 @@ public class EnemyMovement : MonoBehaviour
         }
         return true;
     }
-
-    // if the Enemy is flipped, they are looking to the left
-    public bool GetIsFlipped()
-    {
-        return enemy.isFlipped;
-    }
 }

@@ -39,19 +39,19 @@ public class PlayerMovement : MonoBehaviour
             // keeps track of which side the Player is facing (true) Left, or (false) Right
             // by default i will make the Player always face right in the beginning
             // the reason i use RotateAround() instead of flipping the sprite, is so the collider can flip along with the Player, otherwise the collider would stay the same if the sprite is flipped
-            if (horizontalInput > 0 && GetIsFlipped())
+            if (horizontalInput > 0 && player.GetIsFlipped())
             {
-                player.isFlipped = false;
+                player.SetIsFlipped(false);
                 transform.RotateAround(transform.position, Vector3.up, 180f);
 
             }
-            else if (horizontalInput < 0 && !GetIsFlipped())
+            else if (horizontalInput < 0 && !player.GetIsFlipped())
             {
-                player.isFlipped = true;
+                player.SetIsFlipped(true);
                 transform.RotateAround(transform.position, Vector3.up, 180f);
             }
 
-            if (GetIsFlipped())
+            if (player.GetIsFlipped())
             {
                 transform.Translate(new Vector2(-horizontalInput, verticalInput) * player.GetMoveSpeed() * Time.deltaTime);
             }
@@ -76,12 +76,6 @@ public class PlayerMovement : MonoBehaviour
             return !gameObject.GetComponent<PlayerDodge>().GetIsDodging();
         }
         return true;
-    }
-
-    // if the Player is flipped, they are looking to the left
-    public bool GetIsFlipped()
-    {
-        return player.isFlipped;
     }
 
     // used in event functions

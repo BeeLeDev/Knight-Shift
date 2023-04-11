@@ -19,7 +19,7 @@ public class Player : Character
         //Debug.Log("Player Death");
         float rotateDirection = 90f;
         // facing left
-        if (isFlipped)
+        if (GetIsFlipped())
         {
             rotateDirection *= -1;
         }
