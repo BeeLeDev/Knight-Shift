@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionDamage : MonoBehaviour
+public class ObstacleCollision : MonoBehaviour
 {
     // damage the collider does to Characters
     public int damage;

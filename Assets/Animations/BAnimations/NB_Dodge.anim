@@ -101,7 +101,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: SetLastInputs
+    functionName: SetLastHorizontalInput
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: SetLastVerticalInput
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -157,14 +164,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.5833333
-    functionName: SetIsDodging
+    functionName: MoveDuringRoll
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.5833333
-    functionName: MoveDuringRoll
+    functionName: SetIsDodging
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

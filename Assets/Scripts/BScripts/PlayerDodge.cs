@@ -11,17 +11,11 @@ public class PlayerDodge : MonoBehaviour
     [HideInInspector]
     private bool rightMouseButtonHeld = false;
     private PolygonCollider2D originalHitbox;
-    // assigned as the key before the roll
-    // we use this instead of GetHorizontalInput() and GetVerticalInput() as we don't want the value to change mid-animation using those methods
-    private float lastHorizontalInput;
-    private float lastVerticalInput;
     
-
-
     private void Start() {
-        playerMovement = this.GetComponent<PlayerMovement>();
-        animator = this.GetComponent<Animator>();
-        originalHitbox = this.GetComponent<PolygonCollider2D>();
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+        animator = gameObject.GetComponent<Animator>();
+        originalHitbox = gameObject.GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
@@ -51,7 +45,9 @@ public class PlayerDodge : MonoBehaviour
         
     }
 
-    // TODO: Diagonal roll needs to be worked on
+    /*
+    TODO: Eventually, create a stamina bar that allows the Player to dodge if they have enough stamina
+    */
     // used in event function
     private void MoveDuringRoll()
     {
@@ -59,22 +55,22 @@ public class PlayerDodge : MonoBehaviour
         Vector2 dodgeMovement = new Vector2(0, 0);
 
         // moving left or right
-        if (lastHorizontalInput != 0)
+        if (playerMovement.GetLastHorizontalInput() != 0)
         {
             dodgeMovement += new Vector2(0.2f, 0);
         }
         // moving up
-        if (lastVerticalInput > 0)
+        if (playerMovement.GetLastVerticalInput() > 0)
         {
             dodgeMovement += new Vector2(0, 0.2f);
         }
         // moving down
-        if (lastVerticalInput < 0)
+        if (playerMovement.GetLastVerticalInput() < 0)
         {
             dodgeMovement += new Vector2(0, -0.2f);
         }
         // not moving, move the direction they are facing
-        if (lastHorizontalInput == 0 && lastVerticalInput == 0)
+        if (playerMovement.GetLastHorizontalInput() == 0 && playerMovement.GetLastVerticalInput() == 0)
         {
             dodgeMovement = new Vector2(0.2f, 0);
         }
@@ -99,9 +95,5 @@ public class PlayerDodge : MonoBehaviour
         return animator.GetBool("isDodging");
     }
 
-    private void SetLastInputs()
-    {
-        lastHorizontalInput = playerMovement.GetHorizontalInput();
-        lastVerticalInput = playerMovement.GetVerticalInput();
-    }
+    
 }

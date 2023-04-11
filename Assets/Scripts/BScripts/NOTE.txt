@@ -1,0 +1,1 @@
+If the all the Player action classes have similarities, I should make a PlayerAction class for them to extend from. I am noticing similarities such as instantiating a sprite variable to obtain the SpriteRenderer class. Eventually when the code gets much larger this might help so we don't keep creating new variables for the same class being used in Player.

@@ -15,8 +15,8 @@ public class PlayerAttack : MonoBehaviour
     private bool leftMouseButtonHeld = false;
 
     private void Start() {
-        playerMovement = this.GetComponent<PlayerMovement>();
-        animator = this.GetComponent<Animator>();
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame

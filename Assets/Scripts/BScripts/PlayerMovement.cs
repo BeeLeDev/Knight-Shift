@@ -4,19 +4,24 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [HideInInspector]
-    public Player player;
+    private Player player;
     [HideInInspector]
-
     private Animator animator;
-    private bool isFlipped = false;
     // inputs to move horizontally
+    [HideInInspector]
     public float horizontalInput;
     // inputs to move vertically
+    [HideInInspector]
     public float verticalInput;
+    // horizontalInput and verticalInput change every frame
+    // mainly used when wanting to check input without the values changing
+    // used in PlayerDodge
+    private float lastHorizontalInput;
+    private float lastVerticalInput;
 
     private void Start() {
-        player = this.GetComponent<Player>();
-        animator = this.GetComponent<Animator>();
+        player = gameObject.GetComponent<Player>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -36,23 +41,23 @@ public class PlayerMovement : MonoBehaviour
             // the reason i use RotateAround() instead of flipping the sprite, is so the collider can flip along with the Player, otherwise the collider would stay the same if the sprite is flipped
             if (horizontalInput > 0 && GetIsFlipped())
             {
-                isFlipped = false;
+                player.isFlipped = false;
                 transform.RotateAround(transform.position, Vector3.up, 180f);
 
             }
             else if (horizontalInput < 0 && !GetIsFlipped())
             {
-                isFlipped = true;
+                player.isFlipped = true;
                 transform.RotateAround(transform.position, Vector3.up, 180f);
             }
 
             if (GetIsFlipped())
             {
-                transform.Translate(new Vector2(-horizontalInput, verticalInput) * player.moveSpeed * Time.deltaTime);
+                transform.Translate(new Vector2(-horizontalInput, verticalInput) * player.GetMoveSpeed() * Time.deltaTime);
             }
             else
             {
-                transform.Translate(new Vector2(horizontalInput, verticalInput) * player.moveSpeed * Time.deltaTime);
+                transform.Translate(new Vector2(horizontalInput, verticalInput) * player.GetMoveSpeed() * Time.deltaTime);
             }
         }
     }
@@ -62,13 +67,13 @@ public class PlayerMovement : MonoBehaviour
     {
         // if there is a specific action being done, the player can't move
         // actions that restrict movement: attacking, dodging
-        if (this.GetComponent<PlayerAttack>().GetIsAttacking())
+        if (gameObject.GetComponent<PlayerAttack>().GetIsAttacking())
         {
-            return !this.GetComponent<PlayerAttack>().GetIsAttacking();
+            return !gameObject.GetComponent<PlayerAttack>().GetIsAttacking();
         }
-        else if (this.GetComponent<PlayerDodge>().GetIsDodging())
+        else if (gameObject.GetComponent<PlayerDodge>().GetIsDodging())
         {
-            return !this.GetComponent<PlayerDodge>().GetIsDodging();
+            return !gameObject.GetComponent<PlayerDodge>().GetIsDodging();
         }
         return true;
     }
@@ -76,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
     // if the Player is flipped, they are looking to the left
     public bool GetIsFlipped()
     {
-        return isFlipped;
+        return player.isFlipped;
     }
 
     // used in event functions
@@ -93,6 +98,25 @@ public class PlayerMovement : MonoBehaviour
         return verticalInput;
     }
 
+    public float GetLastHorizontalInput()
+    {
+        return lastHorizontalInput;
+    }
+
+    public float GetLastVerticalInput()
+    {
+        return lastVerticalInput;
+    }
+
+    public void SetLastHorizontalInput()
+    {
+        lastHorizontalInput = GetHorizontalInput();
+    }
+
+    public void SetLastVerticalInput()
+    {
+        lastVerticalInput = GetVerticalInput();
+    }
 }
 
 
