@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4184950570419658244}
   - component: {fileID: 7536395776064969745}
   m_Layer: 0
-  m_Name: EnemyMeleeHitbox
+  m_Name: EnemyMeleeAttackHitbox
   m_TagString: Hit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

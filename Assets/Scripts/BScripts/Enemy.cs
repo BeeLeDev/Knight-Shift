@@ -11,6 +11,14 @@ public class Enemy : Character
         sprite = GetComponent<SpriteRenderer>();
     }
 
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "PlayerAttackHitbox(Clone)" && other.CompareTag("Hit") && GetHealth() > 0)
+        {
+            TakeDamage(1);
+        }
+    }
+
     protected override void PlayDeathAnimation()
     {
         float rotateDirection = 90f;
