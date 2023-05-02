@@ -14,6 +14,16 @@ public class Player : Character
         sprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
+    public override void TakeDamage(int damage)
+    {
+        // if the Player is dodging, do not let them take damage 
+        if (!GetComponent<Animator>().GetBool("isDodging"))
+        {
+            SetHealth(GetHealth() - damage);
+            StartCoroutine(OnHit());
+        }
+    }
+
     protected override void PlayDeathAnimation()
     {
         //Debug.Log("Player Death");

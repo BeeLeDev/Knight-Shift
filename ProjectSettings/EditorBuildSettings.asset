@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/NexusHub.unity
     guid: 1f05989471032aa46bd15871f08aa659
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/BrandonScene.unity
     guid: f90efe03d3ccae4449051c7033edbebd
   m_configObjects: {}

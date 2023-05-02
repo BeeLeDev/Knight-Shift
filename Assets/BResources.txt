@@ -15,3 +15,9 @@ https://stackoverflow.com/questions/5601931/how-do-i-safely-merge-a-git-branch-i
 https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
 
 https://forum.unity.com/threads/how-do-i-continuously-call-a-function-every-few-seconds.853036/
+
+https://www.youtube.com/watch?v=2SXa10ILJms
+
+https://docs.unity3d.com/ScriptReference/Vector2.html
+
+https://docs.unity3d.com/Manual/class-Rigidbody2D.html

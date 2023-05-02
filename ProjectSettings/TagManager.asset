@@ -15,9 +15,9 @@ TagManager:
   - 
   - Water
   - UI
-  - IgnoreAttacks
-  - 
-  - 
+  - Enemies
+  - Player
+  - Obstacles
   - 
   - 
   - 

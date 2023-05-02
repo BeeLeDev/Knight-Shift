@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
 
     // if the Character survives damage, change color
     // if Character does not survive damage, death animation
-    IEnumerator OnHit()
+    protected IEnumerator OnHit()
     {
         // change sprite to red hue for brief moment
         // change it back to original
@@ -51,7 +51,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         SetHealth(GetHealth() - damage);
         StartCoroutine(OnHit());

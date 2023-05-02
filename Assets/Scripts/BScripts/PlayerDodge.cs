@@ -11,6 +11,7 @@ public class PlayerDodge : MonoBehaviour
     [HideInInspector]
     private bool rightMouseButtonHeld = false;
     private PolygonCollider2D originalHitbox;
+    public float translationAmount;
     
     private void Start() {
         playerMovement = gameObject.GetComponent<PlayerMovement>();
@@ -57,25 +58,37 @@ public class PlayerDodge : MonoBehaviour
         // moving left or right
         if (playerMovement.GetLastHorizontalInput() != 0)
         {
-            dodgeMovement += new Vector2(0.2f, 0);
+            dodgeMovement += new Vector2(translationAmount, 0);
         }
         // moving up
         if (playerMovement.GetLastVerticalInput() > 0)
         {
-            dodgeMovement += new Vector2(0, 0.2f);
+            dodgeMovement += new Vector2(0, translationAmount);
         }
         // moving down
         if (playerMovement.GetLastVerticalInput() < 0)
         {
-            dodgeMovement += new Vector2(0, -0.2f);
+            dodgeMovement += new Vector2(0, -translationAmount);
         }
         // not moving, move the direction they are facing
         if (playerMovement.GetLastHorizontalInput() == 0 && playerMovement.GetLastVerticalInput() == 0)
         {
-            dodgeMovement = new Vector2(0.2f, 0);
+            dodgeMovement = new Vector2(translationAmount, 0);
         }
         //Debug.Log(dodgeMovement);
-        transform.Translate(dodgeMovement);
+        //Debug.Log(dodgeMovement.normalized);
+
+        // normalize the dodgeMovement vector if its magnitude is greater than 1
+        // i don't think this helps much
+        /*
+        if (dodgeMovement.magnitude > 1)
+        {
+            dodgeMovement.Normalize();
+        }
+        trasnform.Translate(dodgeMovement * translationAmount);
+        */
+
+        transform.Translate(dodgeMovement);    
     }
 
     public void SetIsDodging(int flag)
@@ -87,6 +100,7 @@ public class PlayerDodge : MonoBehaviour
         else
         {
             animator.SetBool("isDodging", false);
+            // turn off i-frames
         }
     }
 

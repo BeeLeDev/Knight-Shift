@@ -51,13 +51,16 @@ public class PlayerMovement : MonoBehaviour
                 transform.RotateAround(transform.position, Vector3.up, 180f);
             }
 
+            // movement
             if (player.GetIsFlipped())
             {
-                transform.Translate(new Vector2(-horizontalInput, verticalInput) * player.GetMoveSpeed() * Time.deltaTime);
+                // we normalize the movements otherwise the speed when moving diagonal would account for both inputs making it go faster
+                transform.Translate(new Vector2(-horizontalInput, verticalInput).normalized * player.GetMoveSpeed() * Time.deltaTime);
+                
             }
             else
             {
-                transform.Translate(new Vector2(horizontalInput, verticalInput) * player.GetMoveSpeed() * Time.deltaTime);
+                transform.Translate(new Vector2(horizontalInput, verticalInput).normalized * player.GetMoveSpeed() * Time.deltaTime);
             }
         }
     }

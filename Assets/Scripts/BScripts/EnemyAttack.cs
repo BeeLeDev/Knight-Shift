@@ -15,7 +15,7 @@ public class EnemyAttack : MonoBehaviour
     public float attackInterval;
     // assuming the monster is not spawned in front of the Enemy
     // NOTE: i wonder if spawning inside the object counts as a collision, need to test, if so we can keep this false
-    public bool playerInRange = false;
+    private bool playerInRange = false;
 
     /*
     TODO: don't allow the enemy to get hit their own range checker
@@ -31,7 +31,7 @@ public class EnemyAttack : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (!GetIsAttacking() && playerInRange && time > attackInterval) 
+        if (!GetIsAttacking() && GetPlayerInRange() && time > attackInterval) 
         {
             SetIsAttacking(1);
             time = 0;
@@ -60,7 +60,19 @@ public class EnemyAttack : MonoBehaviour
     // used in event function
     private void CreateHitbox()
     {
+        // facing left
+        if (gameObject.GetComponent<Enemy>().GetIsFlipped())
+        {
+            // hitbox.transform.RotateAround(hitbox.transform.position, Vector3.right, 180f);
+            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x - (0.578f), transform.position.y + (0.043f), 0), hitbox.transform.rotation);
+
+            existingHitbox.transform.RotateAround(existingHitbox.transform.position, Vector3.up, 180f);
+        }
+        // facing right
+        else
+        {
             existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), hitbox.transform.rotation);
+        }   
     }
 
     // used in event function
@@ -71,5 +83,15 @@ public class EnemyAttack : MonoBehaviour
         {
             Destroy(existingHitbox);
         }
+    }
+
+    public bool GetPlayerInRange()
+    {
+        return playerInRange;
+    }
+
+    public void SetPlayerInRange(bool playerInRange)
+    {
+        this.playerInRange = playerInRange;
     }
 }
