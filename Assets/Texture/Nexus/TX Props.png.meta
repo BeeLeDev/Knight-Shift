@@ -20,12 +20,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -64,7 +63,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -110,8 +108,8 @@ TextureImporter:
       name: TX Props_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 480
+        x: 199
+        y: 278
         width: 32
         height: 32
       alignment: 0
@@ -573,11 +571,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -12, y: -11}
-        - {x: -13, y: -16}
-        - {x: 13, y: -16}
-        - {x: 12, y: -11}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 5e21a67faa8934a47a360142af25774b
@@ -824,11 +818,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 13, y: -16}
-        - {x: 13, y: 16}
-        - {x: -13, y: 16}
-        - {x: -13, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 0ed16954e816f29428d9921e798f89ef
@@ -2559,8 +2549,9 @@ TextureImporter:
       TX Props_97: 1864597880
       TX Props_98: 2114478890
       TX Props_99: 1782016701
-  mipmapLimitGroupName: 
+  spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
