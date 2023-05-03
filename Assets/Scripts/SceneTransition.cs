@@ -1,6 +1,9 @@
+// https://youtu.be/HxD8pK0Cw44
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
@@ -17,5 +20,8 @@ public class SceneTransition : MonoBehaviour
         
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D col){
+        Debug.Log("hello");
+        SceneManager.LoadScene(1);
+    }
 }
