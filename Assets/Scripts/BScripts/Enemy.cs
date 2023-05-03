@@ -31,22 +31,21 @@ public class Enemy : Character
         // float rotateDirection = -90f;
         if (gameObject.tag == "BigEnemy")
         {
-            Debug.Log("BigEnemy Death");
-
-            gameObject.transform.RotateAround(new Vector3(transform.position.x, transform.position.y - 0.5f, 0), Vector3.forward, rotateDirection);
+            //Debug.Log("BigEnemy Death");
+            transform.RotateAround(new Vector3(transform.position.x, transform.position.y - 0.5f, 0), Vector3.forward, rotateDirection);
         }
         else if (gameObject.tag == "SmallEnemy")
         {
-            Debug.Log("SmallEnemy Death");
-            gameObject.transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
+            //Debug.Log("SmallEnemy Death");
+            transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
         }
         
         // replace this with playing an animation if they are dead
         //transform.GetComponent<Animator>().Play("Idle", 0);
-        Destroy(gameObject.GetComponent<Animator>());
+        Destroy(GetComponent<Animator>());
 
         // delete all action scripts
         //Destroy(gameObject.GetComponent<EnemyMovement>());
-        Destroy(gameObject.GetComponent<EnemyAttack>());
+        Destroy(GetComponent<EnemyAttack>());
     }
 }

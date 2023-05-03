@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    // [SerializeField] will show the variables in the inspector
+    // we want those variables to be private and can access them through getter and setters
+    // we also want to be able to change the variable in the inspector when needed
+
     // these 2 are protected to allow access through Child classes, and not show on Inspector
     protected Rigidbody2D rb;
     protected SpriteRenderer sprite;
     // how much damage the Character can take
-    public int health;
+    [SerializeField]
+    private int health;
     // the damage a Character does each hit
-    public int damage;
+    [SerializeField]
+    private int damage;
     // how fast the Character can move
-    public float moveSpeed;
+    [SerializeField]
+    private float moveSpeed;
     // Character face direction: false - Right, true - Left
-    [HideInInspector]
-    public bool isFlipped = false;
+    private bool isFlipped = false;
 
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         // allows attacks to hit the Character under conditions
         if (other.CompareTag("Hit") && GetHealth() > 0)
         {
-            //TakeDamage(other.GetComponent<Character>().damage);
             TakeDamage(1);
         }
     }
@@ -32,6 +37,7 @@ public class Character : MonoBehaviour
     {
         // change sprite to red hue for brief moment
         // change it back to original
+
         Color originalColor = sprite.color;
         // change color to red
         sprite.color = new Color(.9f, .2f, .2f);
@@ -63,8 +69,8 @@ public class Character : MonoBehaviour
         // default when facing right, they fall backwards
         float rotateDirection = 90f;
         
-        Debug.Log("Character Death");
-        gameObject.transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
+        //Debug.Log("Character Death");
+        transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
     }
 
      // if the Character is flipped, they are looking to the left
