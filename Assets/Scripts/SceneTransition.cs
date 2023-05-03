@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +20,7 @@ public class SceneTransition : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D col){
-        Debug.Log("hello");
-        SceneManager.LoadScene(1);
+        Debug.Log(col.gameObject.name);
+        if (col.gameObject.name == "Player") SceneManager.LoadScene(1);
     }
 }

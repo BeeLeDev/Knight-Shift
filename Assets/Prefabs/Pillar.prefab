@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6935799220159230792}
   - component: {fileID: 4368753781481320348}
   - component: {fileID: 1131670120472056503}
+  - component: {fileID: 8552491451965797144}
   - component: {fileID: 1626784953458665470}
   - component: {fileID: 2462937914029579526}
   m_Layer: 0
@@ -269,6 +270,18 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &8552491451965797144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135926064648967174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57dfdf6c56146004c9283ae4c0b5874a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1626784953458665470
 Rigidbody2D:
   serializedVersion: 4
@@ -277,7 +290,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135926064648967174}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
