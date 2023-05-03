@@ -13,68 +13,125 @@ public class Character : MonoBehaviour
     public int damage;
     // how fast the Character can move
     public float moveSpeed;
+    // Character face direction: false - Right, true - Left
+    [HideInInspector]
+    public bool isFlipped = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        // the object colliding has tag "Hit" and the Character hit is not red
-        if (other.CompareTag("Hit") && sprite.color != new Color(.9f, .2f, .2f))
+    protected virtual void OnTriggerEnter2D(Collider2D other) {
+        // allows attacks to hit the Character under conditions
+        if (other.CompareTag("Hit") && GetHealth() > 0)
         {
-            //this.TakeDamage(other.GetComponent<Character>().damage);
-            this.TakeDamage(1);
+            //TakeDamage(other.GetComponent<Character>().damage);
+            TakeDamage(1);
         }
     }
 
-    IEnumerator ColorChange(Color color)
+    // if the Character survives damage, change color
+    // if Character does not survive damage, death animation
+    protected IEnumerator OnHit()
     {
+        // change sprite to red hue for brief moment
+        // change it back to original
+        Color originalColor = sprite.color;
         // change color to red
         sprite.color = new Color(.9f, .2f, .2f);
 
-        if (HealthAboveZero(health))
+        if (GetHealth() > 0)
         {
             yield return new WaitForSeconds(0.35f);
             // change back to specified color
-            this.sprite.color = color;
+            sprite.color = originalColor;
         }
         else
         {
-            this.PlayDeathAnimation();
-
-            // remove the Player's movement, they are dead, they shouldn't move
-            if (gameObject.GetComponent<PlayerMovement>())
-            {
-                Destroy(gameObject.GetComponent<PlayerMovement>());
-            }
+            PlayDeathAnimation();
             yield return new WaitForSeconds(5f);
             // "kill" the character
-            // can add an animation here r
             Destroy(gameObject);
         }
     }
 
-    private bool HealthAboveZero(int health)
+    public virtual void TakeDamage(int damage)
     {
-        return this.health > 0;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        this.health -= damage;
-
-        // change sprite to red hue for brief moment
-        // change it back to original
-        Color originalColor = sprite.color;
-        StartCoroutine(ColorChange(originalColor));
+        SetHealth(GetHealth() - damage);
+        StartCoroutine(OnHit());
     }
 
     // this can be changeable to have a default death animation, but most likely all enemies will have different death animations
     protected virtual void PlayDeathAnimation()
     {
+        // default when facing right, they fall backwards
+        float rotateDirection = 90f;
+        
         Debug.Log("Character Death");
-        gameObject.transform.RotateAround(new Vector3(transform.position.x, transform.position.y - 0.5f, 0), Vector3.forward, -90f);
+        gameObject.transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
+    }
+
+     // if the Character is flipped, they are looking to the left
+    public bool GetIsFlipped()
+    {
+        return isFlipped;
+    }
+
+    public void SetIsFlipped(bool isFlipped)
+    {
+        this.isFlipped = isFlipped;
+    }
+
+    public int GetHealth() 
+    {
+        return health;
+    }
+
+    // restrictions:
+    // health can't go below 0
+    public void SetHealth(int health)
+    {
+        if (health < 0)
+        {
+            this.health = 0;
+        }
+        else
+        {
+            this.health = health;
+        }
+    }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    // restrictions: 
+    // damage can't go below 0
+    public void SetDamage(int damage)
+    {
+        if (damage < 0)
+        {
+            this.damage = 0;
+        }
+        else 
+        {
+            this.damage = damage;
+        }
+    }
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    // restrictions: 
+    // speed can't go below 0
+    public void SetMoveSpeed(float speed)
+    {
+        if (speed < 0f)
+        {
+            this.moveSpeed = 0f;
+        }
+        else 
+        {
+            this.moveSpeed = speed;
+        }
     }
 }
