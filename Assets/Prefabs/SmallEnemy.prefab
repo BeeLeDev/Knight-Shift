@@ -41,7 +41,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2378297185040261829}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -308,7 +308,6 @@ MonoBehaviour:
   health: 3
   damage: 1
   moveSpeed: 3.5
-  isFlipped: 0
 --- !u!114 &9193030912098547971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,8 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5cbf21736bc4d4ba3e160ad76a1626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitbox: {fileID: 4184950570419658245, guid: bf757a017eb17bb479f831947950d1d6, type: 3}
   attackInterval: 2
+  attackHitbox: {fileID: 0}
 --- !u!114 &3811770217683815938
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ public class Character : MonoBehaviour
     // these 2 are protected to allow access through Child classes, and not show on Inspector
     protected Rigidbody2D rb;
     protected SpriteRenderer sprite;
+    // flag to check if the character is already being hit or not
+    protected bool hitFlag = false;
+    
     // how much damage the Character can take
     [SerializeField]
     private int health;
@@ -22,11 +25,13 @@ public class Character : MonoBehaviour
     private float moveSpeed;
     // Character face direction: false - Right, true - Left
     private bool isFlipped = false;
+    
 
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         // allows attacks to hit the Character under conditions
-        if (other.CompareTag("Hit") && GetHealth() > 0)
+        if (other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
+            hitFlag = true;
             TakeDamage(1);
         }
     }
@@ -51,6 +56,7 @@ public class Character : MonoBehaviour
             yield return new WaitForSeconds(0.35f);
             // change back to specified color
             sprite.color = originalColor;
+            hitFlag = false;
         }
         else
         {
@@ -63,6 +69,7 @@ public class Character : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        //Debug.Log(GetHealth());
         SetHealth(GetHealth() - damage);
         StartCoroutine(OnHit());
     }

@@ -21,6 +21,9 @@ public class Player : Character
             SetHealth(GetHealth() - damage);
             StartCoroutine(OnHit());
         }
+
+        // when Player dodges the hit flag is not returned to false as it is changed when OnHit() is called
+        hitFlag = false;
     }
 
     protected override void PlayDeathAnimation()

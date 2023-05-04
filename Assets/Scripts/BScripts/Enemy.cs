@@ -13,8 +13,9 @@ public class Enemy : Character
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "PlayerAttackHitbox(Clone)" && other.CompareTag("Hit") && GetHealth() > 0)
+        if (other.name == "PlayerAttackHitbox(Clone)" && other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
+            hitFlag = true;
             TakeDamage(1);
         }
     }
@@ -45,7 +46,7 @@ public class Enemy : Character
         Destroy(GetComponent<Animator>());
 
         // delete all action scripts
-        //Destroy(gameObject.GetComponent<EnemyMovement>());
+        Destroy(gameObject.GetComponent<EnemyMovement>());
         Destroy(GetComponent<EnemyAttack>());
     }
 }

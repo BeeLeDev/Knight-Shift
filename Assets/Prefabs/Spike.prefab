@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5172218272984060472}
   - component: {fileID: 5172218272984060473}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Spike
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
