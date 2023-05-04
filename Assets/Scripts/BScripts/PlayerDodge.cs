@@ -1,31 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDodge : MonoBehaviour
 {
     // how much the Player moves when dodging
     public float translationAmount;
-    // max # of dodges a Player can do (restores overtime)
-    public int maxDodges = 2;
-    // amount of time before restoring a dodge
-    public float dodgeRestoreTimer = 3;
-    
+    // how much stamina dodging drains
+    public int staminaDrain = 35;
 
     private PlayerMovement playerMovement;
+    private PlayerStamina playerStamina;
     private Animator animator;
-    private PolygonCollider2D originalHitbox;
     private bool rightMouseButtonHeld = false;
-    private int currentDodges;
-    private float currentTimer;
-    // flag to see if the Player is restoring a dodge
-    private bool restoringFlag = false;
     
     private void Start() {
         playerMovement = GetComponent<PlayerMovement>();
+        playerStamina = GetComponent<PlayerStamina>();
         animator = GetComponent<Animator>();
-        originalHitbox = GetComponent<PolygonCollider2D>();
-        currentDodges = maxDodges;
     }
 
     /*
@@ -38,20 +28,12 @@ public class PlayerDodge : MonoBehaviour
         // right click
         if (Input.GetMouseButtonDown(1))
         {
-            // only dodge if the Player is currently not dodging, and not holding right click
-            if (!GetIsDodging() && !rightMouseButtonHeld && currentDodges > 0) 
+            // only dodge if the Player is currently not dodging, and not holding right click, and has enough stamina
+            if (!GetIsDodging() && !rightMouseButtonHeld && playerStamina.GetStamina() >= staminaDrain) 
             {
                 rightMouseButtonHeld = true;
                 SetIsDodging(1);
-                currentDodges--;
-
-                // restarts dodge restoration if the Player dodges
-                if (restoringFlag)
-                {
-                    //Debug.Log("Restarting Restoring");
-                    StopAllCoroutines();
-                    restoringFlag = false;
-                }
+                playerStamina.DecreaseStamina(staminaDrain);
             }
         }
 
@@ -60,19 +42,7 @@ public class PlayerDodge : MonoBehaviour
         {
             rightMouseButtonHeld = false;
         }
-
-        // dodge restoration
-        if (!restoringFlag && currentDodges < maxDodges)
-        {
-            //Debug.Log("Starting Restoration");
-            restoringFlag = true;
-            StartCoroutine(RestoreDodge());
-        }
     }
-
-    /*
-    TODO: Eventually, create a stamina bar that allows the Player to dodge if they have enough stamina
-    */
     
     // used in event function
     private void MoveDuringRoll()
@@ -131,13 +101,5 @@ public class PlayerDodge : MonoBehaviour
     public bool GetIsDodging()
     {
         return animator.GetBool("isDodging");
-    }
-
-    IEnumerator RestoreDodge()
-    {
-        // wait given time before restoring a dodge
-        yield return new WaitForSeconds(dodgeRestoreTimer);
-        currentDodges++;
-        restoringFlag = false;
     }
 }

@@ -5,21 +5,19 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     // time before next attack in seconds
-    public float attackInterval;
+    public float attackInterval = 2f;
     public GameObject attackHitbox;
 
     private GameObject existingHitbox;
     private Animator animator;
     // timer to check when enemy can attack again
-    private float attackTimer;
+    private float attackTimer = 0f;
     // assuming the monster is not spawned in front of the Enemy
     // NOTE: i wonder if spawning inside the object counts as a collision, need to test, if so we can keep this false
     private bool playerInRange = false;
     
     private void Start() {
         animator = GetComponent<Animator>();
-        attackTimer = 0f;
-        attackInterval = 2f;
     }
 
     // Update is called once per frame
