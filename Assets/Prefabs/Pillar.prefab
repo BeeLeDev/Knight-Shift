@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 6935799220159230792}
   - component: {fileID: 4368753781481320348}
   - component: {fileID: 1131670120472056503}
-  - component: {fileID: 8552491451965797144}
   - component: {fileID: 1626784953458665470}
-  - component: {fileID: 2462937914029579526}
+  - component: {fileID: 7510569401183159928}
+  - component: {fileID: 8552491451965797144}
   m_Layer: 0
   m_Name: BaseTM
   m_TagString: Untagged
@@ -270,18 +270,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &8552491451965797144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135926064648967174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57dfdf6c56146004c9283ae4c0b5874a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1626784953458665470
 Rigidbody2D:
   serializedVersion: 4
@@ -290,7 +278,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135926064648967174}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -303,8 +291,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &2462937914029579526
-CompositeCollider2D:
+--- !u!61 &7510569401183159928
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -313,18 +301,34 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
+  m_Offset: {x: 0.5052109, y: 0.57939243}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7690964, y: 0.9460659}
   m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
+--- !u!114 &8552491451965797144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135926064648967174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57dfdf6c56146004c9283ae4c0b5874a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3909527820882550221
 GameObject:
   m_ObjectHideFlags: 0
