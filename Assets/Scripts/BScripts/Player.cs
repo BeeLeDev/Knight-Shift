@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Player : Character
 {
-    
     // this is for the SmoothDamp() function in 'CameraMovement.cs'
     [HideInInspector]
     public Vector3 velocity;
@@ -10,8 +9,8 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        sprite = gameObject.GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     public override void TakeDamage(int damage)
@@ -34,15 +33,15 @@ public class Player : Character
             rotateDirection *= -1;
         }
         
-        gameObject.transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
+        transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
 
         // replace with a death animation
         //transform.GetComponent<Animator>().Play("Idle", 0);
-        Destroy(gameObject.GetComponent<Animator>());
+        Destroy(GetComponent<Animator>());
 
         // delete all action scripts
-        Destroy(gameObject.GetComponent<PlayerMovement>());
-        Destroy(gameObject.GetComponent<PlayerAttack>());
-        Destroy(gameObject.GetComponent<PlayerDodge>());
+        Destroy(GetComponent<PlayerMovement>());
+        Destroy(GetComponent<PlayerAttack>());
+        Destroy(GetComponent<PlayerDodge>());
     }
 }

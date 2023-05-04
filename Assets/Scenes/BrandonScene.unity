@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7860429939349121876, guid: 6a929dbb301272a4ab8960f60943f1ae, type: 3}
+      propertyPath: translationAmount
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7860429939349121877, guid: 6a929dbb301272a4ab8960f60943f1ae, type: 3}
       propertyPath: m_Name
       value: Player

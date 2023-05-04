@@ -5,18 +5,16 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    public GameObject hitbox;
+    public GameObject attackHitbox;
+    
     private GameObject existingHitbox;
-    [HideInInspector]
-    PlayerMovement playerMovement;
-    [HideInInspector]
-    Animator animator;
-    [HideInInspector]
+    private PlayerMovement playerMovement;
+    private Animator animator;
     private bool leftMouseButtonHeld = false;
 
     private void Start() {
-        playerMovement = gameObject.GetComponent<PlayerMovement>();
-        animator = gameObject.GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -67,17 +65,17 @@ public class PlayerAttack : MonoBehaviour
     private void CreateHitbox()
     {
         // facing left
-        if (gameObject.GetComponent<Player>().GetIsFlipped())
+        if (GetComponent<Player>().GetIsFlipped())
         {
             // hitbox.transform.RotateAround(hitbox.transform.position, Vector3.right, 180f);
-            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x - (0.578f), transform.position.y + (0.043f), 0), hitbox.transform.rotation);
+            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.578f), transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
 
             existingHitbox.transform.RotateAround(existingHitbox.transform.position, Vector3.up, 180f);
         }
         // facing right
         else
         {
-            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), hitbox.transform.rotation);
+            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
         }
     }
 
