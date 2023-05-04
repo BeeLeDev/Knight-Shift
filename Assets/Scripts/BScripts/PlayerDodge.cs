@@ -6,34 +6,53 @@ public class PlayerDodge : MonoBehaviour
 {
     // how much the Player moves when dodging
     public float translationAmount;
+    // max # of dodges a Player can do (restores overtime)
+    public int maxDodges = 2;
+    // amount of time before restoring a dodge
+    public float dodgeRestoreTimer = 3;
+    
 
     private PlayerMovement playerMovement;
     private Animator animator;
     private PolygonCollider2D originalHitbox;
     private bool rightMouseButtonHeld = false;
+    private int currentDodges;
+    private float currentTimer;
+    // flag to see if the Player is restoring a dodge
+    private bool restoringFlag = false;
     
     private void Start() {
         playerMovement = GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
         originalHitbox = GetComponent<PolygonCollider2D>();
+        currentDodges = maxDodges;
     }
+
+    /*
+    TODO: Show the Player's current # of available dodges
+    */
 
     // Update is called once per frame
     void Update()
     {
-        // left click
+        // right click
         if (Input.GetMouseButtonDown(1))
         {
-            // check if the hitbox collided with anything
-            // if so deal damage to that object that collided with the attack
-            if (!GetIsDodging() && !rightMouseButtonHeld) 
+            // only dodge if the Player is currently not dodging, and not holding right click
+            if (!GetIsDodging() && !rightMouseButtonHeld && currentDodges > 0) 
             {
                 rightMouseButtonHeld = true;
                 SetIsDodging(1);
+                currentDodges--;
+
+                // restarts dodge restoration if the Player dodges
+                if (restoringFlag)
+                {
+                    //Debug.Log("Restarting Restoring");
+                    StopAllCoroutines();
+                    restoringFlag = false;
+                }
             }
-            //StartCoroutine(WaitForAnimationFinish(.5f));
-            //StartCoroutine(WaitForAnimationFinish(9));
-            //Debug.Log(("no attack"));
         }
 
         // checks to see if the Player lifted mouse indicating they are not holding the left button
@@ -42,7 +61,13 @@ public class PlayerDodge : MonoBehaviour
             rightMouseButtonHeld = false;
         }
 
-        
+        // dodge restoration
+        if (!restoringFlag && currentDodges < maxDodges)
+        {
+            //Debug.Log("Starting Restoration");
+            restoringFlag = true;
+            StartCoroutine(RestoreDodge());
+        }
     }
 
     /*
@@ -106,5 +131,13 @@ public class PlayerDodge : MonoBehaviour
     public bool GetIsDodging()
     {
         return animator.GetBool("isDodging");
+    }
+
+    IEnumerator RestoreDodge()
+    {
+        // wait given time before restoring a dodge
+        yield return new WaitForSeconds(dodgeRestoreTimer);
+        currentDodges++;
+        restoringFlag = false;
     }
 }

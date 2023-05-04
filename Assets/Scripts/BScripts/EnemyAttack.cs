@@ -11,25 +11,25 @@ public class EnemyAttack : MonoBehaviour
     private GameObject existingHitbox;
     private Animator animator;
     // timer to check when enemy can attack again
-    private float timer;
+    private float attackTimer;
     // assuming the monster is not spawned in front of the Enemy
     // NOTE: i wonder if spawning inside the object counts as a collision, need to test, if so we can keep this false
     private bool playerInRange = false;
     
     private void Start() {
         animator = GetComponent<Animator>();
-        timer = 0f;
+        attackTimer = 0f;
         attackInterval = 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (!GetIsAttacking() && GetPlayerInRange() && timer > attackInterval) 
+        attackTimer += Time.deltaTime;
+        if (!GetIsAttacking() && GetPlayerInRange() && attackTimer > attackInterval) 
         {
             SetIsAttacking(1);
-            timer = 0;
+            attackTimer = 0;
         }
     }
 
