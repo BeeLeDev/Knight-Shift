@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7860429939349121869}
   - component: {fileID: 7860429939349121870}
   - component: {fileID: 7860429939349121871}
+  - component: {fileID: 7062930763771485243}
   - component: {fileID: 7860429939349121872}
   - component: {fileID: 7860429939349121873}
   - component: {fileID: 7860429939349121874}
@@ -119,7 +120,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7860429939349121877}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -148,6 +149,22 @@ PolygonCollider2D:
       - {x: 0.25378942, y: -0.21929306}
       - {x: 0.25553083, y: -0.11320627}
       - {x: 0.1900301, y: 0.01394397}
+--- !u!58 &7062930763771485243
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860429939349121877}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06, y: -0.24}
+  serializedVersion: 2
+  m_Radius: 0.15
 --- !u!50 &7860429939349121872
 Rigidbody2D:
   serializedVersion: 4
