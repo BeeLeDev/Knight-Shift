@@ -66,7 +66,7 @@ public class EnemyAttack : MonoBehaviour
         // facing right
         else
         {
-            existingHitbox = Instantiate(hitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
+            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
         }   
     }
 

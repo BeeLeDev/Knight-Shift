@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Player : Character
 {
-    
     // this is for the SmoothDamp() function in 'CameraMovement.cs'
-    private Vector3 velocity;
+    [HideInInspector]
+    public Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -37,16 +37,11 @@ public class Player : Character
 
         // replace with a death animation
         //transform.GetComponent<Animator>().Play("Idle", 0);
-        Destroy(gGetComponent<Animator>());
+        Destroy(GetComponent<Animator>());
 
         // delete all action scripts
         Destroy(GetComponent<PlayerMovement>());
         Destroy(GetComponent<PlayerAttack>());
         Destroy(GetComponent<PlayerDodge>());
-    }
-
-    public Vector3 GetVelocity()
-    {
-        return velocity;
     }
 }

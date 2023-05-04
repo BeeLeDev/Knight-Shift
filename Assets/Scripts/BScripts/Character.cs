@@ -30,6 +30,10 @@ public class Character : MonoBehaviour
             TakeDamage(1);
         }
     }
+    
+    /*
+    TODO: Make the character stagger when hit, need animation, make not available to do anything when hit
+    */
 
     // if the Character survives damage, change color
     // if Character does not survive damage, death animation
