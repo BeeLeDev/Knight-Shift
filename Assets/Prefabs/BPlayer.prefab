@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationAmount: 0.3
-  staminaDrain: 35
+  staminaDrain: 30
 --- !u!114 &2095706737995245518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,4 +242,3 @@ MonoBehaviour:
   restoreAmount: 1
   restoreInterval: 0.14
   restoreDelay: 2
-  currentStamina: 0
