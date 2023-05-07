@@ -358,17 +358,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton Idle_7: -578154788
-      Skeleton Idle_3: 290333966
-      Skeleton Idle_5: -2140602001
-      Skeleton Idle_8: -2077188966
-      Skeleton Idle_6: 1251981655
-      Skeleton Idle_2: -149054447
       Skeleton Idle_0: 824928663
-      Skeleton Idle_4: 132742616
       Skeleton Idle_1: 720363951
-      Skeleton Idle_9: 750683088
       Skeleton Idle_10: 520788006
+      Skeleton Idle_2: -149054447
+      Skeleton Idle_3: 290333966
+      Skeleton Idle_4: 132742616
+      Skeleton Idle_5: -2140602001
+      Skeleton Idle_6: 1251981655
+      Skeleton Idle_7: -578154788
+      Skeleton Idle_8: -2077188966
+      Skeleton Idle_9: 750683088
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

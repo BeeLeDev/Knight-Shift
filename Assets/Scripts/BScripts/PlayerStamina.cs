@@ -27,7 +27,8 @@ public class PlayerStamina : MonoBehaviour
     {
         playerAttack = GetComponent<PlayerAttack>();
         playerDodge = GetComponent<PlayerDodge>();
-        currentStamina = maxStamina;   
+        currentStamina = maxStamina; 
+        
     }
 
     // Update is called once per frame

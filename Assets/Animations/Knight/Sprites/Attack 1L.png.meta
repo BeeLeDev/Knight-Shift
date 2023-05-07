@@ -337,16 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack 1L_8: 511790461
-      Attack 1L_6: -1807839310
       Attack 1L_0: 1971402853
-      Attack 1L_3: 947394615
-      Attack 1L_7: 257646286
-      Attack 1L_9: -1625135781
       Attack 1L_1: -1561705492
+      Attack 1L_2: 490912064
+      Attack 1L_3: 947394615
       Attack 1L_4: 56228571
       Attack 1L_5: -2019765400
-      Attack 1L_2: 490912064
+      Attack 1L_6: -1807839310
+      Attack 1L_7: 257646286
+      Attack 1L_8: 511790461
+      Attack 1L_9: -1625135781
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

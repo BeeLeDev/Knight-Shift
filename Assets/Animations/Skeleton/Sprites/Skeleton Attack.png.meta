@@ -505,24 +505,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton Attack_15: 1618222266
-      Skeleton Attack_16: 522340553
       Skeleton Attack_0: 1458232405
-      Skeleton Attack_10: 518082930
       Skeleton Attack_1: 1093242045
-      Skeleton Attack_2: 798555783
-      Skeleton Attack_8: 957784238
-      Skeleton Attack_14: -1246531049
-      Skeleton Attack_17: -2086511319
+      Skeleton Attack_10: 518082930
+      Skeleton Attack_11: -1217131884
       Skeleton Attack_12: 752118686
       Skeleton Attack_13: 1622255934
-      Skeleton Attack_5: 370322256
-      Skeleton Attack_4: -669836392
-      Skeleton Attack_7: 362379892
-      Skeleton Attack_11: -1217131884
-      Skeleton Attack_6: 1807433379
-      Skeleton Attack_9: 1881968708
+      Skeleton Attack_14: -1246531049
+      Skeleton Attack_15: 1618222266
+      Skeleton Attack_16: 522340553
+      Skeleton Attack_17: -2086511319
+      Skeleton Attack_2: 798555783
       Skeleton Attack_3: 977636159
+      Skeleton Attack_4: -669836392
+      Skeleton Attack_5: 370322256
+      Skeleton Attack_6: 1807433379
+      Skeleton Attack_7: 362379892
+      Skeleton Attack_8: 957784238
+      Skeleton Attack_9: 1881968708
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -358,17 +358,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Roll_5: 620920315
       Roll_0: -895535925
-      Roll_3: -441570944
-      Roll_2: -774162497
-      Roll_8: -1807513715
-      Roll_10: -581763736
-      Roll_6: -1826737681
       Roll_1: -123948386
-      Roll_9: -1802381869
+      Roll_10: -581763736
+      Roll_2: -774162497
+      Roll_3: -441570944
       Roll_4: -1469447520
+      Roll_5: 620920315
+      Roll_6: -1826737681
       Roll_7: 179160961
+      Roll_8: -1807513715
+      Roll_9: -1802381869
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

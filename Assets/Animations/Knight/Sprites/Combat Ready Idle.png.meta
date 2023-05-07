@@ -232,11 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Combat Ready Idle_3: 1159596618
       Combat Ready Idle_0: 162081017
-      Combat Ready Idle_2: -452641250
-      Combat Ready Idle_4: -1832295328
       Combat Ready Idle_1: 1779206752
+      Combat Ready Idle_2: -452641250
+      Combat Ready Idle_3: 1159596618
+      Combat Ready Idle_4: -1832295328
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

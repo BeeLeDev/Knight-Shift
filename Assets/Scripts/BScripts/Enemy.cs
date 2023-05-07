@@ -9,6 +9,7 @@ public class Enemy : Character
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
@@ -22,6 +23,7 @@ public class Enemy : Character
 
     protected override void PlayDeathAnimation()
     {
+        /*
         float rotateDirection = 90f;
 
         if (GetIsFlipped())
@@ -40,13 +42,53 @@ public class Enemy : Character
             //Debug.Log("SmallEnemy Death");
             transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
         }
+        */
+
+        if (gameObject.tag == "BigEnemy")
+        {
+            //Debug.Log("BigEnemy Death");
+        }
+        else if (gameObject.tag == "SmallEnemy")
+        {
+            //Debug.Log("SmallEnemy Death");
+            animator.SetBool("isDead", true);
+        }
         
         // replace this with playing an animation if they are dead
         //transform.GetComponent<Animator>().Play("Idle", 0);
-        Destroy(GetComponent<Animator>());
+        //Destroy(GetComponent<Animator>());
 
         // delete all action scripts
-        Destroy(gameObject.GetComponent<EnemyMovement>());
+        Destroy(GetComponent<EnemyMovement>());
         Destroy(GetComponent<EnemyAttack>());
+        Destroy(GetComponent<PolygonCollider2D>());
+    }
+
+    protected override void PlayStaggerAnimation()
+    {
+        SetIsStaggering(1);
+        GetComponent<EnemyAttack>().SetIsAttacking(0);
+    }
+
+    protected override void ResetStaggerAnimation()
+    {
+        SetIsStaggering(0);
+    }
+
+    public void SetIsStaggering(int flag)
+    {
+        if(flag == 1)
+        {
+            animator.SetBool("isStaggering", true);
+        }
+        else
+        {
+            animator.SetBool("isStaggering", false);
+        }
+    }
+
+    public bool GetIsStaggering()
+    {
+        return animator.GetBool("isStaggering");
     }
 }

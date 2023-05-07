@@ -442,21 +442,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton Dead_6: -1278262670
+      Skeleton Dead_0: -2063450192
+      Skeleton Dead_1: 1577719430
+      Skeleton Dead_10: -2147014547
+      Skeleton Dead_11: -295356306
+      Skeleton Dead_12: 1306502888
+      Skeleton Dead_13: -1182675609
       Skeleton Dead_14: 1400779837
-      Skeleton Dead_9: 478797893
+      Skeleton Dead_2: -645702412
       Skeleton Dead_3: 523317505
       Skeleton Dead_4: 766361933
-      Skeleton Dead_1: 1577719430
-      Skeleton Dead_2: -645702412
-      Skeleton Dead_10: -2147014547
-      Skeleton Dead_8: -1869237837
-      Skeleton Dead_7: 1060878935
-      Skeleton Dead_0: -2063450192
-      Skeleton Dead_12: 1306502888
       Skeleton Dead_5: -715870283
-      Skeleton Dead_13: -1182675609
-      Skeleton Dead_11: -295356306
+      Skeleton Dead_6: -1278262670
+      Skeleton Dead_7: 1060878935
+      Skeleton Dead_8: -1869237837
+      Skeleton Dead_9: 478797893
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
