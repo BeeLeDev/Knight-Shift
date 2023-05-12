@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2152849192391645217}
   m_Layer: 6
   m_Name: Skelly
-  m_TagString: SmallEnemy
+  m_TagString: MeleeEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackInterval: 2
-  attackHitbox: {fileID: 4184950570419658245, guid: bf757a017eb17bb479f831947950d1d6, type: 3}
+  attackHitbox: {fileID: 116555564300438390, guid: bc91e16114ebc5849834c9024d1304fe, type: 3}
 --- !u!114 &2152849192391645217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2152849192847755448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.35600004, y: 0.072, z: 0}
+  m_LocalPosition: {x: 0.35600004, y: -0.13633332, z: 0}
   m_LocalScale: {x: 0.30843744, y: 0.80625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

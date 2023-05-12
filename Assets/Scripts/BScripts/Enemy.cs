@@ -44,11 +44,11 @@ public class Enemy : Character
         }
         */
 
-        if (gameObject.tag == "BigEnemy")
+        if (gameObject.tag == "RangedEnemy")
         {
             //Debug.Log("BigEnemy Death");
         }
-        else if (gameObject.tag == "SmallEnemy")
+        else if (gameObject.tag == "MeleeEnemy")
         {
             //Debug.Log("SmallEnemy Death");
             animator.SetBool("isDead", true);

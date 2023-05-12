@@ -57,14 +57,14 @@ public class EnemyAttack : MonoBehaviour
         if (GetComponent<Enemy>().GetIsFlipped())
         {
             // hitbox.transform.RotateAround(hitbox.transform.position, Vector3.right, 180f);
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.578f), transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
+            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.328f), transform.position.y - (0.216f), 0), attackHitbox.transform.rotation);
 
             existingHitbox.transform.RotateAround(existingHitbox.transform.position, Vector3.up, 180f);
         }
         // facing right
         else
         {
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
+            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.328f) , transform.position.y - (0.216f), 0), attackHitbox.transform.rotation);
         }   
     }
 
