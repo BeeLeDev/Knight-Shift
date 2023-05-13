@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
-  - BigEnemy
-  - SmallEnemy
   - Hit
+  - MeleeEnemy
+  - RangedEnemy
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Enemies
   - Player
-  - Obstacles
-  - 
+  - Enemy
+  - Hitbox
+  - RangeDetector
   - 
   - 
   - 
@@ -44,13 +45,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 446601137
-    locked: 0
-  - name: Middle
-    uniqueID: 471929811
-    locked: 0
-  - name: Foreground
-    uniqueID: 3306333907
     locked: 0

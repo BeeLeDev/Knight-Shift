@@ -3,9 +3,13 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     // the Player
-    public GameObject player;
+    private GameObject player;
     // approximately the time it will take to reach the target. a smaller value will reach the target faster
     public float smoothTime = 0.1f;
+
+    private void Start() {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     // Update is called once per frame
     void Update()
