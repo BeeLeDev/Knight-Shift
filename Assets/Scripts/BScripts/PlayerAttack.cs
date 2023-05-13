@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
 
     public GameObject attackHitbox;
+    // how much stamina dodging drains
+    public int staminaDrain = 10;
     
     private GameObject existingHitbox;
-    private PlayerMovement playerMovement;
+    private PlayerStamina playerStamina;
     private Animator animator;
     private bool leftMouseButtonHeld = false;
 
     private void Start() {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerStamina = GetComponent<PlayerStamina>();
         animator = GetComponent<Animator>();
     }
 
@@ -25,14 +25,12 @@ public class PlayerAttack : MonoBehaviour
         {
             // check if the hitbox collided with anything
             // if so deal damage to that object that collided with the attack
-            if (!GetIsAttacking() && !leftMouseButtonHeld) 
+            if (!GetIsAttacking() && !leftMouseButtonHeld && playerStamina.GetStamina() >= staminaDrain) 
             {
                 leftMouseButtonHeld = true;
                 SetIsAttacking(1);
+                playerStamina.DecreaseStamina(staminaDrain);
             }
-            //StartCoroutine(WaitForAnimationFinish(.5f));
-            //StartCoroutine(WaitForAnimationFinish(9));
-            //Debug.Log(("no attack"));
         }
 
         // checks to see if the Player lifted mouse indicating they are not holding the left button
@@ -49,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
         if(flag == 1)
         {
             animator.SetBool("isAttacking", true);
+            
         }
         else
         {

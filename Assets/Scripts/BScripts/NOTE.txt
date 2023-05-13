@@ -1,1 +1,13 @@
 If the all the Player action classes have similarities, I should make a PlayerAction class for them to extend from. I am noticing similarities such as instantiating a sprite variable to obtain the SpriteRenderer class. Eventually when the code gets much larger this might help so we don't keep creating new variables for the same class being used in Player.
+
+
+
+Precedence of variable assignments:
+1. Start()
+The Start() will assign the variable last, meaning it will overwrite all the previous assignments.
+
+2. Inspector
+Setting a value for a public variable in inspector will take place after a  global variables creation and assignment, but will be overwritten when the Start() event is called
+
+3. Create and Assign
+Creating a global variable and assigning it a value in a script will take place first, meaning it will BE overwritten by the Inspector and the Start() event.
