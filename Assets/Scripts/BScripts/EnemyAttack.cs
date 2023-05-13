@@ -5,31 +5,29 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     // time before next attack in seconds
-    public float attackInterval;
+    public float attackInterval = 2f;
     public GameObject attackHitbox;
 
     private GameObject existingHitbox;
     private Animator animator;
     // timer to check when enemy can attack again
-    private float timer;
+    private float attackTimer = 0f;
     // assuming the monster is not spawned in front of the Enemy
     // NOTE: i wonder if spawning inside the object counts as a collision, need to test, if so we can keep this false
     private bool playerInRange = false;
     
     private void Start() {
         animator = GetComponent<Animator>();
-        timer = 0f;
-        attackInterval = 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (!GetIsAttacking() && GetPlayerInRange() && timer > attackInterval) 
+        attackTimer += Time.deltaTime;
+        if (!GetIsAttacking() && GetPlayerInRange() && attackTimer > attackInterval) 
         {
             SetIsAttacking(1);
-            timer = 0;
+            attackTimer = 0;
         }
     }
 
@@ -55,19 +53,34 @@ public class EnemyAttack : MonoBehaviour
     // used in event function
     private void CreateHitbox()
     {
-        // facing left
-        if (GetComponent<Enemy>().GetIsFlipped())
+        if (tag == "MeleeEnemy")
         {
-            // hitbox.transform.RotateAround(hitbox.transform.position, Vector3.right, 180f);
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.578f), transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
+            // facing left
+            if (GetComponent<Enemy>().GetIsFlipped())
+            {
+                existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.328f), transform.position.y - (0.216f), 0), attackHitbox.transform.rotation);
 
-            existingHitbox.transform.RotateAround(existingHitbox.transform.position, Vector3.up, 180f);
+                existingHitbox.transform.RotateAround(existingHitbox.transform.position, Vector3.up, 180f);
+            }
+            // facing right
+            else
+            {
+                existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.328f) , transform.position.y - (0.216f), 0), attackHitbox.transform.rotation);
+            }   
         }
-        // facing right
-        else
+        else if (tag == "RangedEnemy")
         {
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
-        }   
+            // facing left
+            if (GetComponent<Enemy>().GetIsFlipped())
+            {
+                existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.5f), transform.position.y, 0), attackHitbox.transform.rotation);
+            }
+            // facing right
+            else
+            {
+                existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.5f) , transform.position.y, 0), attackHitbox.transform.rotation);
+            }   
+        }
     }
 
     // used in event function

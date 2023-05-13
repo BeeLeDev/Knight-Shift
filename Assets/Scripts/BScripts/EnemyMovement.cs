@@ -4,8 +4,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     // player character
-    public GameObject player;
-
+    private GameObject player;
     private Enemy enemy;
     private Animator animator;
     private CircleCollider2D attackRange;
@@ -14,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
         enemy = GetComponent<Enemy>();
         animator = GetComponent<Animator>();
         attackRange = GetComponentInChildren<CircleCollider2D>();
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()

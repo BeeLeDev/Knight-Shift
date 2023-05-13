@@ -11,6 +11,10 @@ public class Character : MonoBehaviour
     // these 2 are protected to allow access through Child classes, and not show on Inspector
     protected Rigidbody2D rb;
     protected SpriteRenderer sprite;
+    protected Animator animator;
+    // flag to check if the character is already being hit or not
+    protected bool hitFlag = false;
+    
     // how much damage the Character can take
     [SerializeField]
     private int health;
@@ -22,11 +26,13 @@ public class Character : MonoBehaviour
     private float moveSpeed;
     // Character face direction: false - Right, true - Left
     private bool isFlipped = false;
+    
 
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         // allows attacks to hit the Character under conditions
-        if (other.CompareTag("Hit") && GetHealth() > 0)
+        if (other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
+            hitFlag = true;
             TakeDamage(1);
         }
     }
@@ -35,9 +41,14 @@ public class Character : MonoBehaviour
     TODO: Make the character stagger when hit, need animation, make not available to do anything when hit
     */
 
+    /*
+    NOTE: i think the smart thing to do here, is to make a stagger animation play if health > 0
+        if not then do death anim, instead of making it virtual and overriding it and pasting the same things
+    */
+
     // if the Character survives damage, change color
     // if Character does not survive damage, death animation
-    protected IEnumerator OnHit()
+    protected virtual IEnumerator OnHit()
     {
         // change sprite to red hue for brief moment
         // change it back to original
@@ -48,9 +59,22 @@ public class Character : MonoBehaviour
 
         if (GetHealth() > 0)
         {
-            yield return new WaitForSeconds(0.35f);
+            PlayStaggerAnimation();
+
+            /*
+            TODO: find time it takes for stagger animation to finish somehow, do other stuff when no longer staggering
+            */
+
+            // this mean stagger animations take 0.4 seconds
+            yield return new WaitForSeconds(0.4f);
             // change back to specified color
             sprite.color = originalColor;
+            
+            // can be hit again
+            hitFlag = false;
+
+            // maybe use ResetStaggerAnimation() and set hitFlag = false as animation events
+            ResetStaggerAnimation();
         }
         else
         {
@@ -63,6 +87,7 @@ public class Character : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        //Debug.Log(GetHealth());
         SetHealth(GetHealth() - damage);
         StartCoroutine(OnHit());
     }
@@ -72,6 +97,34 @@ public class Character : MonoBehaviour
     {
         // default when facing right, they fall backwards
         float rotateDirection = 90f;
+        
+        //Debug.Log("Character Death");
+        transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
+    }
+
+    protected virtual void PlayStaggerAnimation()
+    {
+        // default when facing right, they stagger backwards
+        float rotateDirection = 10f;
+
+        if (GetIsFlipped())
+        {
+            rotateDirection *= -1f;
+        }
+        
+        //Debug.Log("Character Death");
+        transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
+    }
+
+    protected virtual void ResetStaggerAnimation()
+    {
+        // default when facing right, they stagger forward
+        float rotateDirection = -10f;
+
+        if (GetIsFlipped())
+        {
+            rotateDirection *= -1f;
+        }
         
         //Debug.Log("Character Death");
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
