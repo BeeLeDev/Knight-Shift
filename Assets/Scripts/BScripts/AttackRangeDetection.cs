@@ -9,7 +9,7 @@ public class AttackRangeDetection : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //Debug.Log("Player in range");
-           GetComponentInParent<EnemyAttack>().SetPlayerInRange(true);
+            GetComponentInParent<EnemyAttack>().SetPlayerInRange(true);
         }
     }
 
@@ -18,7 +18,7 @@ public class AttackRangeDetection : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //Debug.Log("Player no longer in range");
-           GetComponentInParent<EnemyAttack>().SetPlayerInRange(false);
+            GetComponentInParent<EnemyAttack>().SetPlayerInRange(false);
         }
     }
 }
