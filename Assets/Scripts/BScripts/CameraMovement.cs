@@ -4,7 +4,7 @@ public class CameraMovement : MonoBehaviour
 {
     // the Player
     public GameObject player;
-    // Approximately the time it will take to reach the target. A smaller value will reach the target faster
+    // approximately the time it will take to reach the target. a smaller value will reach the target faster
     public float smoothTime = 0.1f;
 
     // Update is called once per frame
@@ -17,6 +17,8 @@ public class CameraMovement : MonoBehaviour
             player.transform.position.y, 
             transform.position.z), 
             // don't know why we need velocity, but we want to use the Player's velocity cause they have a RigidBody which keeps velocity somewhere probably
+
+            // ** WHAT IS 'ref'? **
             ref player.GetComponent<Player>().velocity, 
             smoothTime);
 

@@ -3,16 +3,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [HideInInspector]
     private Player player;
-    [HideInInspector]
     private Animator animator;
     // inputs to move horizontally
-    [HideInInspector]
-    public float horizontalInput;
+    private float horizontalInput;
     // inputs to move vertically
-    [HideInInspector]
-    public float verticalInput;
+    private float verticalInput;
     // horizontalInput and verticalInput change every frame
     // mainly used when wanting to check input without the values changing
     // used in PlayerDodge
@@ -20,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private float lastVerticalInput;
 
     private void Start() {
-        player = gameObject.GetComponent<Player>();
-        animator = gameObject.GetComponent<Animator>();
+        player = GetComponent<Player>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -70,13 +66,13 @@ public class PlayerMovement : MonoBehaviour
     {
         // if there is a specific action being done, the player can't move
         // actions that restrict movement: attacking, dodging
-        if (gameObject.GetComponent<PlayerAttack>().GetIsAttacking())
+        if (GetComponent<PlayerAttack>().GetIsAttacking())
         {
-            return !gameObject.GetComponent<PlayerAttack>().GetIsAttacking();
+            return !GetComponent<PlayerAttack>().GetIsAttacking();
         }
-        else if (gameObject.GetComponent<PlayerDodge>().GetIsDodging())
+        else if (GetComponent<PlayerDodge>().GetIsDodging())
         {
-            return !gameObject.GetComponent<PlayerDodge>().GetIsDodging();
+            return !GetComponent<PlayerDodge>().GetIsDodging();
         }
         return true;
     }

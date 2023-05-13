@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class PlayerDodge : MonoBehaviour
 {
-    [HideInInspector]
-    PlayerMovement playerMovement;
-    [HideInInspector]
-    Animator animator;
-    [HideInInspector]
-    private bool rightMouseButtonHeld = false;
-    private PolygonCollider2D originalHitbox;
+    // how much the Player moves when dodging
     public float translationAmount;
+
+    private PlayerMovement playerMovement;
+    private Animator animator;
+    private PolygonCollider2D originalHitbox;
+    private bool rightMouseButtonHeld = false;
     
     private void Start() {
-        playerMovement = gameObject.GetComponent<PlayerMovement>();
-        animator = gameObject.GetComponent<Animator>();
-        originalHitbox = gameObject.GetComponent<PolygonCollider2D>();
+        playerMovement = GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>();
+        originalHitbox = GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
@@ -49,6 +48,7 @@ public class PlayerDodge : MonoBehaviour
     /*
     TODO: Eventually, create a stamina bar that allows the Player to dodge if they have enough stamina
     */
+    
     // used in event function
     private void MoveDuringRoll()
     {
@@ -85,7 +85,7 @@ public class PlayerDodge : MonoBehaviour
         {
             dodgeMovement.Normalize();
         }
-        trasnform.Translate(dodgeMovement * translationAmount);
+        transform.Translate(dodgeMovement * translationAmount);
         */
 
         transform.Translate(dodgeMovement);    
@@ -100,7 +100,6 @@ public class PlayerDodge : MonoBehaviour
         else
         {
             animator.SetBool("isDodging", false);
-            // turn off i-frames
         }
     }
 
@@ -108,6 +107,4 @@ public class PlayerDodge : MonoBehaviour
     {
         return animator.GetBool("isDodging");
     }
-
-    
 }

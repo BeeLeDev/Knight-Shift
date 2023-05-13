@@ -3,23 +3,23 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    // player character
+    public GameObject player;
+
     private Enemy enemy;
     private Animator animator;
     private CircleCollider2D attackRange;
 
-    public GameObject player;
-
     private void Start() {
-        enemy = gameObject.GetComponent<Enemy>();
-        animator = gameObject.GetComponent<Animator>();
-        attackRange = gameObject.GetComponentInChildren<CircleCollider2D>();
-
+        enemy = GetComponent<Enemy>();
+        animator = GetComponent<Animator>();
+        attackRange = GetComponentInChildren<CircleCollider2D>();
         player = GameObject.Find("Player");
     }
 
     void Update()
     {
-        // Move the player
+        // find player, move to player, attack player
         if (EnemyCanMove())
         {
             FacePlayer();
@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
             if (!GetComponent<EnemyAttack>().GetPlayerInRange())
             {
                 animator.SetFloat("Speed", 1);
-                transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, enemy.GetMoveSpeed() * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.GetMoveSpeed() * Time.deltaTime);
             }
             else 
             {
@@ -43,11 +43,11 @@ public class EnemyMovement : MonoBehaviour
     // if the Enemy is not attacking, they can move
     private bool EnemyCanMove()
     {
-        // if there is a specific action being done, the player can't move
-        // actions that restrict movement: attacking, dodging
-        if (gameObject.GetComponent<EnemyAttack>().GetIsAttacking())
+        // if there is a specific action being done, the enemy can't move
+        // actions that restrict movement: attacking
+        if (GetComponent<EnemyAttack>().GetIsAttacking())
         {
-            return !gameObject.GetComponent<EnemyAttack>().GetIsAttacking();
+            return !GetComponent<EnemyAttack>().GetIsAttacking();
         }
         return true;
     }
