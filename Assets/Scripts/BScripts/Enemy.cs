@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = this.gameObject.AddComponent<AudioSource>();
+        audioClip = Resources.Load<AudioClip>("Assets/Resources/hitSound2.mp3");
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
@@ -19,7 +24,10 @@ public class Enemy : Character
         if (other.name == "PlayerAttackHitbox(Clone)" && other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
             hitFlag = true;
+            audioSource.clip = audioClip;
+            audioSource.Play();
             TakeDamage(1);
+            
         }
     }
 

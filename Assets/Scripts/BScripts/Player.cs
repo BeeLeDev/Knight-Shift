@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public AudioSource source;
+    public AudioClip clip;
+
+
     // this is for the SmoothDamp() function in 'CameraMovement.cs'
     [HideInInspector]
     public Vector3 velocity;
@@ -20,6 +24,8 @@ public class Player : Character
         {
             SetHealth(GetHealth() - damage);
             StartCoroutine(OnHit());
+            source.clip = clip;
+            source.Play();
         }
 
         // when Player dodges the hit flag is not returned to false as it is changed when OnHit() is called
