@@ -9,15 +9,33 @@ public class SpawnBoss : MonoBehaviour
 
     private int enemiesKilled;
 
+    private void Start() 
+    {
+        // this assumes the EnemySpawners spawn Enemies at the start of the game
+        // what if we want to spawn the enemies when the Player triggers something?
+        GameObject[] meleeEnemies = GameObject.FindGameObjectsWithTag("MeleeEnemy");
+        GameObject[] rangedEnemies = GameObject.FindGameObjectsWithTag("RangedEnemy");
+
+        foreach (GameObject meleeEnemy in meleeEnemies)
+        {
+            requiredEnemies.Add(meleeEnemy);
+        }
+
+        foreach (GameObject rangedEnemy in rangedEnemies)
+        {
+            requiredEnemies.Add(rangedEnemy);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     { 
-        for (int i = 0; i < requiredEnemies.Count; i++)
+        foreach (GameObject enemy in requiredEnemies)
         {
-            if (requiredEnemies[i] == null)
+            if (enemy == null)
             {
-                // Remove the null reference from the list
-                requiredEnemies.RemoveAt(i);
+                // remove the null reference from the list
+                requiredEnemies.Remove(enemy);
             }
         }
 

@@ -8,6 +8,7 @@ TagManager:
   - Hit
   - MeleeEnemy
   - RangedEnemy
+  - Spawner
   layers:
   - Default
   - TransparentFX
