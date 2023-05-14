@@ -8,7 +8,8 @@ public class Buff : MonoBehaviour
     public string buffName;
 
     // List of all buffs
-    public string[] buffNames = {"Extra Health", "Extra Damage" , "Faster Movement"};
+    public string[] buffNames = {"Extra Health", "Extra Damage" , "Faster Movement" , "Extra Stamina" , "Light Roll" , "Light Strike" , "Forceful Strike" , "Health Surge" , 
+    "Weighted Blade", "Armored Warrior" , "Nimble Warrior", "Heavy Blade", "Light Blade" , "Super Surge" , "Last Stand"};
 
     private void OnCollisionEnter2D(Collision2D other) 
     {

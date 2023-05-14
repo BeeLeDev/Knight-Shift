@@ -53,6 +53,16 @@ public class PlayerStamina : MonoBehaviour
         }
     }
 
+    public int GetMaxStamina() 
+    {
+        return maxStamina;
+    }
+
+    public void SetMaxStamina(int x) 
+    {
+        maxStamina = x;
+    }
+
     public int GetStamina()
     {
         return currentStamina;
@@ -62,9 +72,9 @@ public class PlayerStamina : MonoBehaviour
     {
         currentStamina = stamina;
 
-        if (currentStamina > 100)
+        if (currentStamina > maxStamina)
         {
-            currentStamina = 100;
+            currentStamina = maxStamina;
         }
         else if (currentStamina < 0)
         {

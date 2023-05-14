@@ -40,6 +40,16 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public int GetStaminaDrain() 
+    {
+        return staminaDrain;
+    }
+
+    public void SetStaminaDrain(int x) 
+    {
+        staminaDrain = x;
+    }
+
     // this is used in the animation as a function event for KnightA1
     // for some reason Unity doesn't accept functions with bool parameters as function events so i am changing it to an int
     public void SetIsAttacking(int flag)

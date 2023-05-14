@@ -43,6 +43,16 @@ public class PlayerDodge : MonoBehaviour
             rightMouseButtonHeld = false;
         }
     }
+
+    public int GetDrain() 
+    {
+        return staminaDrain;
+    }
+
+    public void SetDrain(int x) 
+    {
+        staminaDrain = x;
+    }
     
     // used in event function
     private void MoveDuringRoll()
