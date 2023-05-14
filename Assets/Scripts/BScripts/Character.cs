@@ -14,7 +14,8 @@ public class Character : MonoBehaviour
     protected Animator animator;
     // flag to check if the character is already being hit or not
     protected bool hitFlag = false;
-    
+    protected Color originalColor;
+
     // how much damage the Character can take
     [SerializeField]
     private int health;
@@ -26,14 +27,30 @@ public class Character : MonoBehaviour
     private float moveSpeed;
     // Character face direction: false - Right, true - Left
     private bool isFlipped = false;
-    
 
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         // allows attacks to hit the Character under conditions
         if (other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
             hitFlag = true;
-            TakeDamage(1);
+
+            // Enemies being hit by Player is implemented in Enemy class
+
+            // if Player hit by Enemy
+            if (other.name == "EnemyMeleeAttackHitbox(Clone)" || 
+            other.name == "EnemyRangedProjectile(Clone)")
+            {
+                // this is bad code, it won't work if there are more than one type of "MeleeEnemy" or "RangedEnemy"
+                // this is only temporary so it's fine for now
+                if (other.name == "EnemyMeleeAttackHitbox(Clone)")
+                {
+                    TakeDamage(GameObject.FindGameObjectWithTag("MeleeEnemy").GetComponent<Enemy>().GetDamage());
+                }
+                else if (other.name == "EnemyRangedProjectile(Clone)")
+                {
+                    TakeDamage(GameObject.FindGameObjectWithTag("RangedEnemy").GetComponent<Enemy>().GetDamage());
+                }
+            }
         }
     }
     
@@ -50,20 +67,15 @@ public class Character : MonoBehaviour
     // if Character does not survive damage, death animation
     protected virtual IEnumerator OnHit()
     {
-        // change sprite to red hue for brief moment
-        // change it back to original
-
-        Color originalColor = sprite.color;
         // change color to red
         sprite.color = new Color(.9f, .2f, .2f);
+
+        // play sound when hit
+        GetComponent<AudioSource>().Play();
 
         if (GetHealth() > 0)
         {
             PlayStaggerAnimation();
-
-            /*
-            TODO: find time it takes for stagger animation to finish somehow, do other stuff when no longer staggering
-            */
 
             // this mean stagger animations take 0.4 seconds
             yield return new WaitForSeconds(0.4f);
@@ -79,7 +91,7 @@ public class Character : MonoBehaviour
         else
         {
             PlayDeathAnimation();
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             // "kill" the character
             Destroy(gameObject);
         }

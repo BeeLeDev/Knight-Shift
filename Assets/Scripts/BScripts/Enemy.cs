@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    public AudioSource audioSource;
-    public AudioClip audioClip;
     public GameObject drop;
 
     // Start is called before the first frame update
@@ -13,55 +11,27 @@ public class Enemy : Character
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        originalColor = sprite.color;
         animator = GetComponent<Animator>();
-        audioSource = this.gameObject.AddComponent<AudioSource>();
-        audioClip = Resources.Load<AudioClip>("Assets/Resources/hitSound2.mp3");
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         // prevented from enemy attacking itself
-        // NEED TO PREVENT PLAYER FROM HITTING HITBOX
         if (other.name == "PlayerAttackHitbox(Clone)" && other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
             hitFlag = true;
-            audioSource.clip = audioClip;
-            audioSource.Play();
-            TakeDamage(1);
-            
+
+            // take damage based on Player's damage
+            TakeDamage(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().GetDamage());
         }
     }
 
     protected override void PlayDeathAnimation()
     {
-        /*
-        float rotateDirection = 90f;
-
-        if (GetIsFlipped())
-        {
-            rotateDirection *= -1;
-        }
-        // when we figure out Enemy movement, we can get Enemy facing and use that
-        // float rotateDirection = -90f;
-        if (gameObject.tag == "BigEnemy")
-        {
-            //Debug.Log("BigEnemy Death");
-            transform.RotateAround(new Vector3(transform.position.x, transform.position.y - 0.5f, 0), Vector3.forward, rotateDirection);
-        }
-        else if (gameObject.tag == "SmallEnemy")
-        {
-            //Debug.Log("SmallEnemy Death");
-            transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
-        }
-        */
-
         animator.SetBool("isDead", true);
         DropBuff();
         
-        // replace this with playing an animation if they are dead
-        //transform.GetComponent<Animator>().Play("Idle", 0);
-        //Destroy(GetComponent<Animator>());
-
         // delete all action scripts
         Destroy(GetComponent<EnemyMovement>());
         Destroy(GetComponent<EnemyAttack>());
