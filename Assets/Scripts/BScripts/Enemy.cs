@@ -6,6 +6,7 @@ public class Enemy : Character
 {
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public GameObject drop;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,7 @@ public class Enemy : Character
         */
 
         animator.SetBool("isDead", true);
+        DropBuff();
         
         // replace this with playing an animation if they are dead
         //transform.GetComponent<Animator>().Play("Idle", 0);
@@ -75,6 +77,14 @@ public class Enemy : Character
     protected override void ResetStaggerAnimation()
     {
         SetIsStaggering(0);
+    }
+
+    public void DropBuff() 
+    {
+        int x = Random.Range(0, 100);
+        if (x <= 24) {
+            Instantiate(drop, transform.position, drop.transform.rotation);
+        }
     }
 
     public void SetIsStaggering(int flag)
