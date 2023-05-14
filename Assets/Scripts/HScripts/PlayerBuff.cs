@@ -4,53 +4,69 @@ using UnityEngine;
 
 public class PlayerBuff : MonoBehaviour
 {
-    
     // the name of the buff
     private string buffName = "None";
+    // intial value of Player's stats
+    private Hashtable defaultStats;
+    // we don't need this, just using it to shorten lines of code
+    private Player player;
+
+    private void Start() 
+    {
+        player = GetComponent<Player>();
+
+        defaultStats = new Hashtable();
+        defaultStats.Add("Health", player.GetHealth());
+        defaultStats.Add("Damage", player.GetDamage());
+        defaultStats.Add("MoveSpeed", player.GetMoveSpeed());
+        defaultStats.Add("StaminaDrainAttack", GetComponent<PlayerAttack>().GetStaminaDrain());
+        defaultStats.Add("StaminaDrainDodge", GetComponent<PlayerDodge>().GetStaminaDrain());
+        defaultStats.Add("MaxStamina", GetComponent<PlayerStamina>().GetMaxStamina());
+    }
 
     public void SetBuff(string buffName)
     {
         this.buffName = buffName;
-        updateBuff();
+        UpdateBuff();
         Debug.Log(buffName);
     }
 
     // adds the buff during the run
-    public void updateBuff() {
+    public void UpdateBuff() {
 
         // heals and adds extra health
         if (buffName == "Extra Health") {
-            int x = GetComponent<Player>().GetHealth();
+            int x = player.GetHealth();
             x += 2;
-            GetComponent<Player>().SetHealth(x);
+            player.SetHealth(x);
         }
 
         // heals and multiplies health
         if (buffName == "Health Surge") {
-            int x = GetComponent<Player>().GetHealth();
+            int x = player.GetHealth();
             x *= 2;
-            GetComponent<Player>().SetHealth(x);
+            player.SetHealth(x);
         }
 
         // adds extra damage
         if (buffName == "Extra Damage") {
-            int x = GetComponent<Player>().GetDamage();
+            int x = player.GetDamage();
             x += 1;
-            GetComponent<Player>().SetDamage(x);
+            player.SetDamage(x);
         }
 
         // multiplies damage
         if (buffName == "Forceful Strike") {
-            int x = GetComponent<Player>().GetDamage();
+            int x = player.GetDamage();
             x *= 2;
-            GetComponent<Player>().SetDamage(x);
+            player.SetDamage(x);
         }
 
         // adds extra speed
         if (buffName == "Faster Movement") {
-            float x = GetComponent<Player>().GetMoveSpeed();
+            float x = player.GetMoveSpeed();
             x += 1f;
-            GetComponent<Player>().SetMoveSpeed(x);
+            player.SetMoveSpeed(x);
         }
 
         // increases total stamina
@@ -62,11 +78,11 @@ public class PlayerBuff : MonoBehaviour
 
         // decreases stamina cost to roll
         if (buffName == "Light Roll") {
-            int x = GetComponent<PlayerDodge>().GetDrain();
+            int x = GetComponent<PlayerDodge>().GetStaminaDrain();
             if (x > 5) {
                 x += -5;
             }
-            GetComponent<PlayerDodge>().SetDrain(x);
+            GetComponent<PlayerDodge>().SetStaminaDrain(x);
         }
 
         // decreases stamina cost to attack
@@ -84,74 +100,74 @@ public class PlayerBuff : MonoBehaviour
             x += 5;
             GetComponent<PlayerAttack>().SetStaminaDrain(x);
 
-            int y = GetComponent<Player>().GetDamage();
+            int y = player.GetDamage();
             y += 5;
-            GetComponent<Player>().SetDamage(y);
+            player.SetDamage(y);
         }
 
         // increases health but slows player down
         if (buffName == "Armored Warrior") {
-            int x = GetComponent<Player>().GetHealth();
+            int x = player.GetHealth();
             x *= 3;
-            GetComponent<Player>().SetHealth(x);
+            player.SetHealth(x);
 
-            float y = GetComponent<Player>().GetMoveSpeed();
+            float y = player.GetMoveSpeed();
             y = y/2f;
-            GetComponent<Player>().SetMoveSpeed(y);
+            player.SetMoveSpeed(y);
         }
 
         // increases speed but weakens player
         if (buffName == "Nimble Warrior") {
-            int x = GetComponent<Player>().GetHealth();
+            int x = player.GetHealth();
             x = (int) x/2;
-            GetComponent<Player>().SetHealth(x);
+            player.SetHealth(x);
 
-            float y = GetComponent<Player>().GetMoveSpeed();
+            float y = player.GetMoveSpeed();
             y *= 3f;
-            GetComponent<Player>().SetMoveSpeed(y);
+            player.SetMoveSpeed(y);
         }
 
         // increases damage but slows player down
         if (buffName == "Heavy Blade") {
-            int x = GetComponent<Player>().GetDamage();
+            int x = player.GetDamage();
             x *= 3;
-            GetComponent<Player>().SetDamage(x);
+            player.SetDamage(x);
 
-            float y = GetComponent<Player>().GetMoveSpeed();
+            float y = player.GetMoveSpeed();
             y = y/2f;
-            GetComponent<Player>().SetMoveSpeed(y);
+            player.SetMoveSpeed(y);
         }
 
         // decreases damage but speeds player up
         if (buffName == "Light Blade") {
-            int x = GetComponent<Player>().GetDamage();
+            int x = player.GetDamage();
             x = (int) x/2;
-            GetComponent<Player>().SetDamage(x);
+            player.SetDamage(x);
 
-            float y = GetComponent<Player>().GetMoveSpeed();
+            float y = player.GetMoveSpeed();
             y *= 3f;
-            GetComponent<Player>().SetMoveSpeed(y);
+            player.SetMoveSpeed(y);
         }
 
         // increased health, damage, and speed
         if (buffName == "Super Surge") {
-            int x = GetComponent<Player>().GetHealth();
+            int x = player.GetHealth();
             x += 5;
-            GetComponent<Player>().SetHealth(x);
+            player.SetHealth(x);
 
-            float y = GetComponent<Player>().GetMoveSpeed();
+            float y = player.GetMoveSpeed();
             y += 5f;
-            GetComponent<Player>().SetMoveSpeed(y);
+            player.SetMoveSpeed(y);
 
-            int z = GetComponent<Player>().GetDamage();
+            int z = player.GetDamage();
             z += 5;
-            GetComponent<Player>().SetDamage(z);
+            player.SetDamage(z);
         }
 
         // 1 shot yourself, and 1 shot them
         if (buffName == "Last Stand") {
-            GetComponent<Player>().SetHealth(1);
-            GetComponent<Player>().SetDamage(100);
+            player.SetHealth(1);
+            player.SetDamage(100);
         }
 
 
@@ -160,11 +176,11 @@ public class PlayerBuff : MonoBehaviour
 
     // resets the buffs once player dies and returns to the main hub
     public void resetAll() {
-        GetComponent<Player>().SetHealth(3);
-        GetComponent<Player>().SetDamage(1);
-        GetComponent<Player>().SetMoveSpeed(3.5f);
-        GetComponent<PlayerAttack>().SetStaminaDrain(10);
-        GetComponent<PlayerDodge>().SetDrain(35);
-        GetComponent<PlayerStamina>().SetMaxStamina(100);
+        player.SetHealth((int)defaultStats["Health"]);
+        player.SetDamage((int)defaultStats["Damage"]);
+        player.SetMoveSpeed((int)defaultStats["MoveSpeed"]);
+        GetComponent<PlayerAttack>().SetStaminaDrain((int)defaultStats["StaminaDrainAttack"]);
+        GetComponent<PlayerDodge>().SetStaminaDrain((int)defaultStats["StaminaDrainDodge"]);
+        GetComponent<PlayerStamina>().SetMaxStamina((int)defaultStats["NaxStamina"]);
     }
 }

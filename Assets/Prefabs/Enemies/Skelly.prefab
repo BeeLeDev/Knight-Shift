@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2152849192391645219}
   - component: {fileID: 2152849192391645217}
   - component: {fileID: 77085970}
+  - component: {fileID: -8349947820652881036}
   m_Layer: 7
   m_Name: Skelly
   m_TagString: MeleeEnemy
@@ -276,9 +277,6 @@ MonoBehaviour:
   health: 3
   damage: 1
   moveSpeed: 3.25
-  audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
-  drop: {fileID: 65421930401083101, guid: f8ee1374ed158f0418cc9989914deb7b, type: 3}
 --- !u!114 &2152849192391645217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +303,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackInterval: 2
   attackHitbox: {fileID: 116555564300438390, guid: bc91e16114ebc5849834c9024d1304fe, type: 3}
+--- !u!114 &-8349947820652881036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152849192391645216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89bf8dbce9c3a246bded7fae514f0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buff: {fileID: 7972900008194600100, guid: 182807965dcbd964b99dd586e66deb3e, type: 3}
 --- !u!1 &2152849192847755448
 GameObject:
   m_ObjectHideFlags: 0

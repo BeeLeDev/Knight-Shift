@@ -58,9 +58,9 @@ public class PlayerStamina : MonoBehaviour
         return maxStamina;
     }
 
-    public void SetMaxStamina(int x) 
+    public void SetMaxStamina(int maxStamina) 
     {
-        maxStamina = x;
+        this.maxStamina = maxStamina;
     }
 
     public int GetStamina()

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 226855545485163587}
   - component: {fileID: 226855545485163586}
   - component: {fileID: 226855545485163645}
+  - component: {fileID: 8999573436579372046}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: RangedEnemy
@@ -388,13 +389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26988990bc4f59459e4569da5b92e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagedSound: {fileID: 0}
   health: 2
   damage: 1
   moveSpeed: 3.25
-  audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
-  drop: {fileID: 65421930401083101, guid: f8ee1374ed158f0418cc9989914deb7b, type: 3}
 --- !u!114 &226855545485163586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,3 +418,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackInterval: 2
   attackHitbox: {fileID: 4738846013975820627, guid: 33bdb7150e2ea564ca0a0df5a08b13b3, type: 3}
+--- !u!114 &8999573436579372046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226855545485163644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89bf8dbce9c3a246bded7fae514f0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buff: {fileID: 7972900008194600100, guid: 182807965dcbd964b99dd586e66deb3e, type: 3}

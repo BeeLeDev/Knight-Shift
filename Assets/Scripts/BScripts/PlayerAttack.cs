@@ -5,7 +5,7 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject attackHitbox;
     // how much stamina dodging drains
-    public int staminaDrain = 10;
+    public int staminaDrain;
     
     private GameObject existingHitbox;
     private PlayerStamina playerStamina;
@@ -38,16 +38,6 @@ public class PlayerAttack : MonoBehaviour
         {
             leftMouseButtonHeld = false;
         }
-    }
-
-    public int GetStaminaDrain() 
-    {
-        return staminaDrain;
-    }
-
-    public void SetStaminaDrain(int x) 
-    {
-        staminaDrain = x;
     }
 
     // this is used in the animation as a function event for KnightA1
@@ -96,5 +86,15 @@ public class PlayerAttack : MonoBehaviour
         {
             Destroy(existingHitbox);
         }
+    }
+
+    public void SetStaminaDrain(int staminaDrain) 
+    {
+        this.staminaDrain = staminaDrain;
+    }
+
+    public int GetStaminaDrain() 
+    {
+        return staminaDrain;
     }
 }

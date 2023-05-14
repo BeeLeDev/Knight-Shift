@@ -36,6 +36,7 @@ public class Character : MonoBehaviour
 
             // Enemies being hit by Player is implemented in Enemy class
 
+            // this is extremely bad code, temporary for now
             // if Player hit by Enemy
             if (other.name == "EnemyMeleeAttackHitbox(Clone)" || 
             other.name == "EnemyRangedProjectile(Clone)" ||
