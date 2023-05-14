@@ -105,127 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile012_0
+      name: getHit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 576
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3940ac73981031c43aa7e708ef4a5841
-      internalID: 1169568895
+      spriteID: 22fc200345611f8418c4e94128d70bb7
+      internalID: 811526569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile012_1
+      name: getHit_1
       rect:
         serializedVersion: 2
         x: 576
         y: 0
         width: 576
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd3d6eca23ff66947896b6813c3541b2
-      internalID: 1062645326
+      spriteID: 7de9eeb2771e5d849a1b4e9a5e229f09
+      internalID: 358598500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile012_2
+      name: getHit_2
       rect:
         serializedVersion: 2
         x: 1152
         y: 0
         width: 576
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9acd3db18f0a4e1478b8c3d5849add51
-      internalID: -51472642
+      spriteID: a7e0a59a684cd3048936a4c49ef6266e
+      internalID: 853958501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile012_3
+      name: getHit_3
       rect:
         serializedVersion: 2
         x: 1728
         y: 0
         width: 576
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9c0cd0bfb1c8f146bd6776f738cf75a
-      internalID: -1695240320
+      spriteID: 8de48b1c371907643a2bd20edbf6e716
+      internalID: -1677100671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile012_4
+      name: getHit_4
       rect:
         serializedVersion: 2
         x: 2304
         y: 0
         width: 576
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 687be1857f6520f48adeaca655c60071
-      internalID: 254357180
+      spriteID: ae8b32cb56db6de4888076b72a2d07c8
+      internalID: -590581355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile012_5
+      name: getHit_5
       rect:
         serializedVersion: 2
         x: 2880
         y: 0
         width: 576
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fdc851ea1c9015479b90f5000ceba29
-      internalID: -819286316
+      spriteID: a04f18ba101075c4d8c83078114797c8
+      internalID: 1257814195
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tile012_0: 1169568895
-      tile012_1: 1062645326
-      tile012_2: -51472642
-      tile012_3: -1695240320
-      tile012_4: 254357180
-      tile012_5: -819286316
+      getHit_0: 811526569
+      getHit_1: 358598500
+      getHit_2: 853958501
+      getHit_3: -1677100671
+      getHit_4: -590581355
+      getHit_5: 1257814195
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
