@@ -273,8 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26988990bc4f59459e4569da5b92e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagedSound: {fileID: 0}
-  health: 2
+  health: 3
   damage: 1
   moveSpeed: 3.25
 --- !u!114 &2152849192391645217
