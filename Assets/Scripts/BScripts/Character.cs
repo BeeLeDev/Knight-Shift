@@ -33,7 +33,15 @@ public class Character : MonoBehaviour
         if (other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
             hitFlag = true;
-            TakeDamage(1);
+
+            // Enemies being hit by Player is implemented in Enemy class
+
+            // if Player hit by Enemy
+            if (other.name == "EnemyMeleeAttackHitbox(Clone)" || 
+            other.name == "EnemyRangedProjectile(Clone)")
+            {
+                TakeDamage(other.gameObject.GetComponent<Enemy>().GetDamage());
+            }
         }
     }
     
@@ -56,6 +64,9 @@ public class Character : MonoBehaviour
         Color originalColor = sprite.color;
         // change color to red
         sprite.color = new Color(.9f, .2f, .2f);
+
+        // play sound when hit
+        GetComponent<AudioSource>().Play();
 
         if (GetHealth() > 0)
         {
