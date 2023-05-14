@@ -11,6 +11,7 @@ public class Player : Character
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        originalColor = sprite.color;
     }
 
     public override void TakeDamage(int damage)

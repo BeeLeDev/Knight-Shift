@@ -9,6 +9,7 @@ public class Enemy : Character
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        originalColor = sprite.color;
         animator = GetComponent<Animator>();
     }
 

@@ -12,6 +12,7 @@ public class PlayerBuff : MonoBehaviour
     {
         this.buffName = buffName;
         updateBuff();
+        Debug.Log(buffName);
     }
 
     // adds the buff during the run
