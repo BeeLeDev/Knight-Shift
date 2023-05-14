@@ -392,6 +392,9 @@ MonoBehaviour:
   health: 2
   damage: 1
   moveSpeed: 3.25
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
+  drop: {fileID: 65421930401083101, guid: f8ee1374ed158f0418cc9989914deb7b, type: 3}
 --- !u!114 &226855545485163586
 MonoBehaviour:
   m_ObjectHideFlags: 0

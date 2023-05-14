@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    public GameObject drop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class Enemy : Character
     protected override void PlayDeathAnimation()
     {
         animator.SetBool("isDead", true);
+        DropBuff();
         
         // delete all action scripts
         Destroy(GetComponent<EnemyMovement>());
@@ -44,6 +47,14 @@ public class Enemy : Character
     protected override void ResetStaggerAnimation()
     {
         SetIsStaggering(0);
+    }
+
+    public void DropBuff() 
+    {
+        int x = Random.Range(0, 100);
+        if (x <= 24) {
+            Instantiate(drop, transform.position, drop.transform.rotation);
+        }
     }
 
     public void SetIsStaggering(int flag)
