@@ -40,8 +40,21 @@ public class Enemy : Character
 
     protected override void PlayStaggerAnimation()
     {
-        SetIsStaggering(1);
-        GetComponent<EnemyAttack>().SetIsAttacking(0);
+        if (tag == "Boss")
+        {
+            // only stagger when health is divisible by 3
+            if (GetHealth() % 3 == 0)
+            {
+                SetIsStaggering(1);
+                GetComponent<EnemyAttack>().SetIsAttacking(0);
+            }
+        }
+        // if it's a basic Enemy, they will stagger and not hit
+        else
+        {
+            SetIsStaggering(1);
+            GetComponent<EnemyAttack>().SetIsAttacking(0);
+        }
     }
 
     protected override void ResetStaggerAnimation()

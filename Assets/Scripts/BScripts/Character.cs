@@ -38,7 +38,8 @@ public class Character : MonoBehaviour
 
             // if Player hit by Enemy
             if (other.name == "EnemyMeleeAttackHitbox(Clone)" || 
-            other.name == "EnemyRangedProjectile(Clone)")
+            other.name == "EnemyRangedProjectile(Clone)" ||
+            other.name == "BossAttackHitbox(Clone)")
             {
                 // this is bad code, it won't work if there are more than one type of "MeleeEnemy" or "RangedEnemy"
                 // this is only temporary so it's fine for now
@@ -49,6 +50,10 @@ public class Character : MonoBehaviour
                 else if (other.name == "EnemyRangedProjectile(Clone)")
                 {
                     TakeDamage(GameObject.FindGameObjectWithTag("RangedEnemy").GetComponent<Enemy>().GetDamage());
+                }
+                else if (other.name == "BossAttackHitbox(Clone)")
+                {
+                    TakeDamage(GameObject.FindGameObjectWithTag("Boss").GetComponent<Enemy>().GetDamage());
                 }
             }
         }

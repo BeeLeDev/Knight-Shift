@@ -81,6 +81,21 @@ public class EnemyAttack : MonoBehaviour
                 existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.5f) , transform.position.y, 0), attackHitbox.transform.rotation);
             }   
         }
+        else if (tag == "Boss")
+        {
+            // facing left
+            if (GetComponent<Enemy>().GetIsFlipped())
+            {
+                existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.97f), transform.position.y - (1.345f), 0), attackHitbox.transform.rotation);
+
+                existingHitbox.transform.RotateAround(existingHitbox.transform.position, Vector3.up, 180f);
+            }
+            // facing right
+            else
+            {
+                existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.97f) , transform.position.y - (1.345f), 0), attackHitbox.transform.rotation);
+            }   
+        }
     }
 
     // used in event function
