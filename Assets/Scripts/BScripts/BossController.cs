@@ -4,11 +4,37 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+    // i'll make this better instead of hardcoding it, bad code, temporary
+    public AudioClip[] audioClips;
+
+    private AudioSource audioSource;
 
     public GameObject spinHitbox;
     public GameObject explosionHitbox;
     public GameObject specialHitbox;
     private GameObject existingHitbox;
+
+        private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioClips.Length > 0)
+        {
+            // set the first audio clip to play
+            audioSource.clip = audioClips[0];
+        }
+    }
+
+    private void PlaySpecialSound()
+    {
+        audioSource.clip = audioClips[1];
+        audioSource.Play();
+    }
+
+    private void ResetSound()
+    {
+        audioSource.clip = audioClips[0];
+    }
 
     private void CreateSpinHitbox()
     {
