@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI_Controller : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UI_Controller : MonoBehaviour
     public Image staminaBar;
     public GameObject heart;
     public GameObject heartContainer;
+    public TextMeshProUGUI text;
 
     private PlayerStamina playerStamina;
     private int playerHealth;
@@ -25,8 +27,9 @@ public class UI_Controller : MonoBehaviour
         for (int i = 0; i < playerHealth; i++)
         {
             GameObject h = Instantiate(heart, heartContainer.transform);
-            //hearts.Add(h.GetComponent<Image>());
         }
+
+        text.enabled = false;
     }
 
     // Update is called once per frame
@@ -46,6 +49,11 @@ public class UI_Controller : MonoBehaviour
                 GameObject h = Instantiate(heart, heartContainer.transform);
                 playerHealth++;
             }
+        }
+
+        // turn on death text
+        if (player.GetHealth() == 0){
+            text.enabled = true;
         }
     }
 }
