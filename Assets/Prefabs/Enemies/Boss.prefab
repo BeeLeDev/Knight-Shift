@@ -139,8 +139,9 @@ GameObject:
   - component: {fileID: 2365420352006253660}
   - component: {fileID: 2368329826367339670}
   - component: {fileID: 8758884848102801135}
-  - component: {fileID: 167330617115263123}
   - component: {fileID: 6796795807928667237}
+  - component: {fileID: 167330617115263123}
+  - component: {fileID: 500156897}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Boss
@@ -401,7 +402,18 @@ MonoBehaviour:
   health: 10
   damage: 2
   moveSpeed: 2
-  drop: {fileID: 0}
+--- !u!114 &6796795807928667237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365420352006253657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ec043a1a098d74cace45c8d7ae51ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &167330617115263123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackInterval: 3.5
   attackHitbox: {fileID: 116555564300438390, guid: dc5fbe1a6252b8f43a21830d3784d66b, type: 3}
---- !u!114 &6796795807928667237
+--- !u!114 &500156897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -425,6 +437,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2365420352006253657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7ec043a1a098d74cace45c8d7ae51ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f64e325e059fa54a993894fb4e2210e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 2ec534276612d5549bf92f59f5044e6b, type: 3}
+  - {fileID: 8300000, guid: 6b8ef66785632b84c9005839433b6344, type: 3}
+  spinHitbox: {fileID: 116555564300438390, guid: 19a3a061906ca564b8ce844c6a9ff5e2, type: 3}
+  explosionHitbox: {fileID: 116555564300438390, guid: 117197071e783c94c8dde5623f21b275, type: 3}
+  specialHitbox: {fileID: 116555564300438390, guid: 658e6e4c51d0f5640b07fad3bcd672bc, type: 3}

@@ -63,18 +63,13 @@ public class PlayerAttack : MonoBehaviour
     // used in event function
     private void CreateHitbox()
     {
+        // facing right
+        existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.411f) , transform.position.y + (-0.101f), 0), attackHitbox.transform.rotation);
+            
         // facing left
         if (GetComponent<Player>().GetIsFlipped())
         {
-            // hitbox.transform.RotateAround(hitbox.transform.position, Vector3.right, 180f);
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.578f), transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
-
-            existingHitbox.transform.RotateAround(existingHitbox.transform.position, Vector3.up, 180f);
-        }
-        // facing right
-        else
-        {
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
+            existingHitbox.transform.RotateAround(transform.position, Vector3.up, 180f);
         }
     }
 

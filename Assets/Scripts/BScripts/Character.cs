@@ -38,9 +38,14 @@ public class Character : MonoBehaviour
 
             // this is extremely bad code, temporary for now
             // if Player hit by Enemy
-            if (other.name == "EnemyMeleeAttackHitbox(Clone)" || 
-            other.name == "EnemyRangedProjectile(Clone)" ||
-            other.name == "BossAttackHitbox(Clone)")
+            if (
+                other.name == "EnemyMeleeAttackHitbox(Clone)" || 
+                other.name == "EnemyRangedProjectile(Clone)" ||
+                other.name == "BossAttackHitbox(Clone)"||
+                other.name == "BossSpinHitbox(Clone)"||
+                other.name == "BossExplosionHitbox(Clone)"||
+                other.name == "BossSpecialHitbox(Clone)"
+                )
             {
                 // this is bad code, it won't work if there are more than one type of "MeleeEnemy" or "RangedEnemy"
                 // this is only temporary so it's fine for now
@@ -52,10 +57,17 @@ public class Character : MonoBehaviour
                 {
                     TakeDamage(GameObject.FindGameObjectWithTag("RangedEnemy").GetComponent<Enemy>().GetDamage());
                 }
-                else if (other.name == "BossAttackHitbox(Clone)")
+                else if 
+                (
+                    other.name == "BossAttackHitbox(Clone)"||
+                    other.name == "BossSpinHitbox(Clone)"||
+                    other.name == "BossExplosionHitbox(Clone)"||
+                    other.name == "BossSpecialHitbox(Clone)"
+                    )
                 {
                     TakeDamage(GameObject.FindGameObjectWithTag("Boss").GetComponent<Enemy>().GetDamage());
                 }
+                
             }
         }
     }

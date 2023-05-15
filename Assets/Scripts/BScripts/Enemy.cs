@@ -62,8 +62,6 @@ public class Enemy : Character
         SetIsStaggering(0);
     }
 
-    
-
     public void SetIsStaggering(int flag)
     {
         if(flag == 1)
