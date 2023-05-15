@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class UI_Controller : MonoBehaviour
 {
-    public Player player;
+    private Player player;
     public Image staminaBar;
     public GameObject heart;
     public GameObject heartContainer;
@@ -22,6 +22,7 @@ public class UI_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GetComponentInParent<Player>();
         playerStamina = player.GetComponent<PlayerStamina>();
 
         playerHealth = player.GetHealth();
@@ -52,14 +53,9 @@ public class UI_Controller : MonoBehaviour
             }
         }
 
-        // turn on death text
-        if (player.GetHealth() == 0){
-            text.enabled = true;
-            Invoke("LoadHub", 5);
-        }
+    
+        
     }
 
-    void LoadHub(){
-        SceneManager.LoadScene(0);
-    }
+    
 }

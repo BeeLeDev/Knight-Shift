@@ -47,4 +47,9 @@ public class Player : Character
         Destroy(GetComponent<PlayerAttack>());
         Destroy(GetComponent<PlayerDodge>());
     }
+
+    protected override void KillCharacter()
+    {
+        // don't do anything, bad code, temporary
+    }
 }

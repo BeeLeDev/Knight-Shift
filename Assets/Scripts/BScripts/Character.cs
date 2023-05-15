@@ -110,8 +110,9 @@ public class Character : MonoBehaviour
         {
             PlayDeathAnimation();
             yield return new WaitForSeconds(3f);
-            //"kill" the character
-            //Destroy(gameObject);
+
+            // removes the character
+            KillCharacter();
         }
     }
 
@@ -120,6 +121,11 @@ public class Character : MonoBehaviour
         //Debug.Log(GetHealth());
         SetHealth(GetHealth() - damage);
         StartCoroutine(OnHit());
+    }
+
+    protected virtual void KillCharacter()
+    {
+        Destroy(gameObject);
     }
 
     // this can be changeable to have a default death animation, but most likely all enemies will have different death animations
