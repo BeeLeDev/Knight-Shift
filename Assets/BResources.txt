@@ -21,3 +21,5 @@ https://www.youtube.com/watch?v=2SXa10ILJms
 https://docs.unity3d.com/ScriptReference/Vector2.html
 
 https://docs.unity3d.com/Manual/class-Rigidbody2D.html
+
+https://www.youtube.com/watch?v=473BDfDowGE
