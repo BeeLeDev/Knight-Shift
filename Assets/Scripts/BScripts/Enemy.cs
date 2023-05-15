@@ -30,7 +30,10 @@ public class Enemy : Character
         animator.SetBool("isDead", true);
 
         // drop a buff when Enemy dies
-        GetComponent<DropBuff>().Drop();
+        if (tag != "Boss")
+        {
+            GetComponent<DropBuff>().Drop();
+        }
 
         // delete all action scripts
         Destroy(GetComponent<EnemyMovement>());
