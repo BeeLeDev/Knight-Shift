@@ -5,7 +5,7 @@ public class PlayerDodge : MonoBehaviour
     // how much the Player moves when dodging
     public float translationAmount;
     // how much stamina dodging drains
-    public int staminaDrain = 35;
+    public int staminaDrain;
 
     private PlayerMovement playerMovement;
     private PlayerStamina playerStamina;
@@ -101,5 +101,15 @@ public class PlayerDodge : MonoBehaviour
     public bool GetIsDodging()
     {
         return animator.GetBool("isDodging");
+    }
+
+    public void SetStaminaDrain(int staminaDrain) 
+    {
+        this.staminaDrain = staminaDrain;
+    }
+
+    public int GetStaminaDrain() 
+    {
+        return staminaDrain;
     }
 }

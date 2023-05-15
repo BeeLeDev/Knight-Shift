@@ -9,48 +9,28 @@ public class Enemy : Character
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        originalColor = sprite.color;
         animator = GetComponent<Animator>();
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         // prevented from enemy attacking itself
-        // NEED TO PREVENT PLAYER FROM HITTING HITBOX
         if (other.name == "PlayerAttackHitbox(Clone)" && other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
             hitFlag = true;
-            TakeDamage(1);
+
+            // take damage based on Player's damage
+            TakeDamage(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().GetDamage());
         }
     }
 
     protected override void PlayDeathAnimation()
     {
-        /*
-        float rotateDirection = 90f;
-
-        if (GetIsFlipped())
-        {
-            rotateDirection *= -1;
-        }
-        // when we figure out Enemy movement, we can get Enemy facing and use that
-        // float rotateDirection = -90f;
-        if (gameObject.tag == "BigEnemy")
-        {
-            //Debug.Log("BigEnemy Death");
-            transform.RotateAround(new Vector3(transform.position.x, transform.position.y - 0.5f, 0), Vector3.forward, rotateDirection);
-        }
-        else if (gameObject.tag == "SmallEnemy")
-        {
-            //Debug.Log("SmallEnemy Death");
-            transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
-        }
-        */
-
         animator.SetBool("isDead", true);
-        
-        // replace this with playing an animation if they are dead
-        //transform.GetComponent<Animator>().Play("Idle", 0);
-        //Destroy(GetComponent<Animator>());
+
+        // drop a buff when Enemy dies
+        GetComponent<DropBuff>().Drop();
 
         // delete all action scripts
         Destroy(GetComponent<EnemyMovement>());
@@ -60,8 +40,21 @@ public class Enemy : Character
 
     protected override void PlayStaggerAnimation()
     {
-        SetIsStaggering(1);
-        GetComponent<EnemyAttack>().SetIsAttacking(0);
+        if (tag == "Boss")
+        {
+            // only stagger when health is divisible by 3
+            if (GetHealth() % 3 == 0)
+            {
+                SetIsStaggering(1);
+                GetComponent<EnemyAttack>().SetIsAttacking(0);
+            }
+        }
+        // if it's a basic Enemy, they will stagger and not hit
+        else
+        {
+            SetIsStaggering(1);
+            GetComponent<EnemyAttack>().SetIsAttacking(0);
+        }
     }
 
     protected override void ResetStaggerAnimation()

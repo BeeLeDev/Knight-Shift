@@ -9,6 +9,7 @@ TagManager:
   - MeleeEnemy
   - RangedEnemy
   - Spawner
+  - Boss
   layers:
   - Default
   - TransparentFX

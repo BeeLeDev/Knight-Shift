@@ -11,6 +11,7 @@ public class Player : Character
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        originalColor = sprite.color;
     }
 
     public override void TakeDamage(int damage)
@@ -39,7 +40,6 @@ public class Player : Character
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
 
         // replace with a death animation
-        //transform.GetComponent<Animator>().Play("Idle", 0);
         Destroy(GetComponent<Animator>());
 
         // delete all action scripts
