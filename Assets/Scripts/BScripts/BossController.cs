@@ -25,9 +25,9 @@ public class BossController : MonoBehaviour
         audioSource.Play();
     }
 
-    private void ResetSound(int i)
+    private void ResetSound()
     {
-        audioSource.clip = audioClips[i];
+        audioSource.clip = audioClips[0];
     }
 
     private void CreateSpinHitbox()

@@ -541,8 +541,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 5.3166666
+    functionName: PlaySpecialSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 5.5666666
     functionName: DeleteBossHitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 5.5666666
+    functionName: ResetSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

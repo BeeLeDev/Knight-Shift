@@ -11,7 +11,10 @@ public class DropBuff : MonoBehaviour
         // range from 1 (inclusive) - 100 (101 exlusive)
         int x = Random.Range(1, 101);
         if (x <= 15) {
-            Instantiate(buff, transform.position, buff.transform.rotation);
+            Invoke("DelayDrop", 2);
         }
+    }
+    public void DelayDrop(){
+        Instantiate(buff, transform.position, buff.transform.rotation);
     }
 }

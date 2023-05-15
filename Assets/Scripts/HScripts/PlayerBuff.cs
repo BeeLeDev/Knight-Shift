@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerBuff : MonoBehaviour
 {
+    public TextMeshProUGUI buffMessage;
+
     // the name of the buff
     private string buffName = "None";
     // intial value of Player's stats
@@ -14,6 +17,7 @@ public class PlayerBuff : MonoBehaviour
     private void Start() 
     {
         player = GetComponent<Player>();
+        buffMessage.enabled = false;
 
         defaultStats = new Hashtable();
         defaultStats.Add("Health", player.GetHealth());
@@ -31,11 +35,19 @@ public class PlayerBuff : MonoBehaviour
         Debug.Log(buffName);
     }
 
+    public void DisableText() 
+    {
+        buffMessage.enabled = false;
+    }
+
     // adds the buff during the run
     public void UpdateBuff() {
 
         // heals and adds extra health
         if (buffName == "Extra Health") {
+            buffMessage.text = "Health Increased";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetHealth();
             x += 2;
             player.SetHealth(x);
@@ -43,6 +55,9 @@ public class PlayerBuff : MonoBehaviour
 
         // heals and multiplies health
         if (buffName == "Health Surge") {
+            buffMessage.text = "Health Increased Greatly";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetHealth();
             x *= 2;
             player.SetHealth(x);
@@ -50,6 +65,9 @@ public class PlayerBuff : MonoBehaviour
 
         // adds extra damage
         if (buffName == "Extra Damage") {
+            buffMessage.text = "Damage Increased";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetDamage();
             x += 1;
             player.SetDamage(x);
@@ -57,6 +75,9 @@ public class PlayerBuff : MonoBehaviour
 
         // multiplies damage
         if (buffName == "Forceful Strike") {
+            buffMessage.text = "Damage Increased Greatly";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetDamage();
             x *= 2;
             player.SetDamage(x);
@@ -64,13 +85,19 @@ public class PlayerBuff : MonoBehaviour
 
         // adds extra speed
         if (buffName == "Faster Movement") {
+            buffMessage.text = "Speed Increased";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             float x = player.GetMoveSpeed();
-            x += 1f;
+            x += 0.25f;
             player.SetMoveSpeed(x);
         }
 
         // increases total stamina
         if (buffName == "Extra Stamina") {
+            buffMessage.text = "Stamina Increased";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = GetComponent<PlayerStamina>().GetMaxStamina();
             x += 25;
             GetComponent<PlayerStamina>().SetMaxStamina(x);
@@ -78,6 +105,9 @@ public class PlayerBuff : MonoBehaviour
 
         // decreases stamina cost to roll
         if (buffName == "Light Roll") {
+            buffMessage.text = "Stamina Cost for Roll Reduced";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = GetComponent<PlayerDodge>().GetStaminaDrain();
             if (x > 5) {
                 x += -5;
@@ -87,6 +117,9 @@ public class PlayerBuff : MonoBehaviour
 
         // decreases stamina cost to attack
         if (buffName == "Light Strike") {
+            buffMessage.text = "Stamina Cost for Attack Reduced";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = GetComponent<PlayerAttack>().GetStaminaDrain();
             if (x > 2) {
                 x += -2;
@@ -96,17 +129,23 @@ public class PlayerBuff : MonoBehaviour
 
         // increases stamina cost but increases damage of swing greatly
         if (buffName == "Weighted Blade") {
+            buffMessage.text = "Increased Damage, Increased Stamina Drain on Hit";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = GetComponent<PlayerAttack>().GetStaminaDrain();
             x += 5;
             GetComponent<PlayerAttack>().SetStaminaDrain(x);
 
             int y = player.GetDamage();
-            y += 5;
+            y += 3;
             player.SetDamage(y);
         }
 
         // increases health but slows player down
         if (buffName == "Armored Warrior") {
+            buffMessage.text = "Greatly Increased Health, Greatly Decreased Speed";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetHealth();
             x *= 3;
             player.SetHealth(x);
@@ -118,17 +157,23 @@ public class PlayerBuff : MonoBehaviour
 
         // increases speed but weakens player
         if (buffName == "Nimble Warrior") {
+            buffMessage.text = "Greatly Decreased Health, Greatly Increased Speed";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetHealth();
             x = (int) x/2;
             player.SetHealth(x);
 
             float y = player.GetMoveSpeed();
-            y *= 3f;
+            y *= 1.25f;
             player.SetMoveSpeed(y);
         }
 
         // increases damage but slows player down
         if (buffName == "Heavy Blade") {
+            buffMessage.text = "Greatly Increased Damage, Greatly Decreased Speed";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetDamage();
             x *= 3;
             player.SetDamage(x);
@@ -140,23 +185,29 @@ public class PlayerBuff : MonoBehaviour
 
         // decreases damage but speeds player up
         if (buffName == "Light Blade") {
+            buffMessage.text = "Greatly Decreased Damage, Greatly Increased Speed";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetDamage();
             x = (int) x/2;
             player.SetDamage(x);
 
             float y = player.GetMoveSpeed();
-            y *= 3f;
+            y *= 1.25f;
             player.SetMoveSpeed(y);
         }
 
         // increased health, damage, and speed
         if (buffName == "Super Surge") {
+            buffMessage.text = "Increased Health, Speed, and Damage";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             int x = player.GetHealth();
             x += 5;
             player.SetHealth(x);
 
             float y = player.GetMoveSpeed();
-            y += 5f;
+            y += 1.5f;
             player.SetMoveSpeed(y);
 
             int z = player.GetDamage();
@@ -166,6 +217,9 @@ public class PlayerBuff : MonoBehaviour
 
         // 1 shot yourself, and 1 shot them
         if (buffName == "Last Stand") {
+            buffMessage.text = "Last Stand, Massively Increased Damage, Massively Decreased Health";
+            buffMessage.enabled = true;
+            Invoke("DisableText", 3);
             player.SetHealth(1);
             player.SetDamage(100);
         }
