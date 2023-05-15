@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UI_Controller : MonoBehaviour
 {
@@ -54,6 +55,11 @@ public class UI_Controller : MonoBehaviour
         // turn on death text
         if (player.GetHealth() == 0){
             text.enabled = true;
+            Invoke("LoadHub", 5);
         }
+    }
+
+    void LoadHub(){
+        SceneManager.LoadScene(0);
     }
 }
