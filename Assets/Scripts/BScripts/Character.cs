@@ -28,8 +28,8 @@ public class Character : MonoBehaviour
     // Character face direction: false - Right, true - Left
     private bool isFlipped = false;
 
-    protected virtual void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log(hitFlag);
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
         // allows attacks to hit the Character under conditions
         if (other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
@@ -39,11 +39,11 @@ public class Character : MonoBehaviour
             // this is extremely bad code, temporary for now
             // if Player hit by Enemy
             if (
-                other.name == "EnemyMeleeAttackHitbox(Clone)" || 
+                other.name == "EnemyMeleeAttackHitbox(Clone)" ||
                 other.name == "EnemyRangedProjectile(Clone)" ||
-                other.name == "BossAttackHitbox(Clone)"||
-                other.name == "BossSpinHitbox(Clone)"||
-                other.name == "BossExplosionHitbox(Clone)"||
+                other.name == "BossAttackHitbox(Clone)" ||
+                other.name == "BossSpinHitbox(Clone)" ||
+                other.name == "BossExplosionHitbox(Clone)" ||
                 other.name == "BossSpecialHitbox(Clone)"
                 )
             {
@@ -59,21 +59,21 @@ public class Character : MonoBehaviour
                 {
                     TakeDamage(GameObject.FindGameObjectWithTag("RangedEnemy").GetComponent<Enemy>().GetDamage());
                 }
-                else if 
+                else if
                 (
-                    other.name == "BossAttackHitbox(Clone)"||
-                    other.name == "BossSpinHitbox(Clone)"||
-                    other.name == "BossExplosionHitbox(Clone)"||
+                    other.name == "BossAttackHitbox(Clone)" ||
+                    other.name == "BossSpinHitbox(Clone)" ||
+                    other.name == "BossExplosionHitbox(Clone)" ||
                     other.name == "BossSpecialHitbox(Clone)"
                     )
                 {
                     TakeDamage(GameObject.FindGameObjectWithTag("Boss").GetComponent<Enemy>().GetDamage());
                 }
-                
+
             }
         }
     }
-    
+
     /*
     TODO: Make the character stagger when hit, need animation, make not available to do anything when hit
     */
@@ -101,13 +101,9 @@ public class Character : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
             // change back to specified color
             sprite.color = originalColor;
-            
+
             // can be hit again
-            Debug.Log(hitFlag);
-
             hitFlag = false;
-            Debug.Log(hitFlag);
-
 
             // maybe use ResetStaggerAnimation() and set hitFlag = false as animation events
             ResetStaggerAnimation();
@@ -140,7 +136,7 @@ public class Character : MonoBehaviour
     {
         // default when facing right, they fall backwards
         float rotateDirection = 90f;
-        
+
         //Debug.Log("Character Death");
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
     }
@@ -154,7 +150,7 @@ public class Character : MonoBehaviour
         {
             rotateDirection *= -1f;
         }
-        
+
         //Debug.Log("Character Death");
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
     }
@@ -168,12 +164,12 @@ public class Character : MonoBehaviour
         {
             rotateDirection *= -1f;
         }
-        
+
         //Debug.Log("Character Death");
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
     }
 
-     // if the Character is flipped, they are looking to the left
+    // if the Character is flipped, they are looking to the left
     public bool GetIsFlipped()
     {
         return isFlipped;
@@ -184,7 +180,7 @@ public class Character : MonoBehaviour
         this.isFlipped = isFlipped;
     }
 
-    public int GetHealth() 
+    public int GetHealth()
     {
         return health;
     }
@@ -216,7 +212,7 @@ public class Character : MonoBehaviour
         {
             this.damage = 0;
         }
-        else 
+        else
         {
             this.damage = damage;
         }
@@ -235,7 +231,7 @@ public class Character : MonoBehaviour
         {
             this.moveSpeed = 0f;
         }
-        else 
+        else
         {
             this.moveSpeed = speed;
         }

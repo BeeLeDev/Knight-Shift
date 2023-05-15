@@ -17,14 +17,14 @@ public class SpawnRandomEnemies : MonoBehaviour
     private float yDistance;
     private float spawnTimer = 0f;
 
-    private void Start() 
+    private void Start()
     {
         // all the possible spawn positions are based off the size of the object
         xDistance = transform.localScale.x / 2;
         yDistance = transform.localScale.y / 2;
     }
 
-    private void Update() 
+    private void Update()
     {
         spawnTimer += Time.deltaTime;
 

@@ -36,7 +36,7 @@ public class Player : Character
         {
             rotateDirection *= -1;
         }
-        
+
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
 
         // replace with a death animation
