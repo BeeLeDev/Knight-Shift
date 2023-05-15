@@ -7,8 +7,7 @@ public class SceneTransition : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.gameObject.name);
-        if (col.gameObject.name == "PlayerAttackHitbox(Clone)")
+        if (col) //.gameObject.name == "PlayerAttackHitbox(Clone)")
             SceneManager.LoadScene(1);
     }
 }

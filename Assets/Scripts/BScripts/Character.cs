@@ -111,7 +111,7 @@ public class Character : MonoBehaviour
             PlayDeathAnimation();
             yield return new WaitForSeconds(3f);
             // "kill" the character
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
