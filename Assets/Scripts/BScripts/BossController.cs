@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-  
+
     public GameObject spinHitbox;
     public GameObject explosionHitbox;
     public GameObject specialHitbox;
@@ -12,8 +12,8 @@ public class BossController : MonoBehaviour
 
     private void CreateSpinHitbox()
     {
-        existingHitbox = Instantiate(spinHitbox, new Vector3(transform.position.x + (-0.037f) , transform.position.y + (-1.424f), 0), spinHitbox.transform.rotation);
-            
+        existingHitbox = Instantiate(spinHitbox, new Vector3(transform.position.x + (-0.037f), transform.position.y + (-1.424f), 0), spinHitbox.transform.rotation);
+
         // facing left
         if (GetComponent<Enemy>().GetIsFlipped())
         {
@@ -23,8 +23,8 @@ public class BossController : MonoBehaviour
 
     private void CreateExplosionHitbox()
     {
-        existingHitbox = Instantiate(explosionHitbox, new Vector3(transform.position.x + (1.425f) , transform.position.y + (-1.044f), 0), explosionHitbox.transform.rotation);
-            
+        existingHitbox = Instantiate(explosionHitbox, new Vector3(transform.position.x + (1.425f), transform.position.y + (-1.044f), 0), explosionHitbox.transform.rotation);
+
         // facing left
         if (GetComponent<Enemy>().GetIsFlipped())
         {
@@ -34,8 +34,8 @@ public class BossController : MonoBehaviour
 
     private void CreateSpecialHitbox()
     {
-        existingHitbox = Instantiate(specialHitbox, new Vector3(transform.position.x + (1.9f) , transform.position.y + (-1.31f), 0), specialHitbox.transform.rotation);
-            
+        existingHitbox = Instantiate(specialHitbox, new Vector3(transform.position.x + (1.9f), transform.position.y + (-1.31f), 0), specialHitbox.transform.rotation);
+
         // facing left
         if (GetComponent<Enemy>().GetIsFlipped())
         {

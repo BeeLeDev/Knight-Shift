@@ -11,8 +11,9 @@ public class PlayerDodge : MonoBehaviour
     private PlayerStamina playerStamina;
     private Animator animator;
     private bool rightMouseButtonHeld = false;
-    
-    private void Start() {
+
+    private void Start()
+    {
         playerMovement = GetComponent<PlayerMovement>();
         playerStamina = GetComponent<PlayerStamina>();
         animator = GetComponent<Animator>();
@@ -29,7 +30,7 @@ public class PlayerDodge : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             // only dodge if the Player is currently not dodging, and not holding right click, and has enough stamina
-            if (!GetIsDodging() && !rightMouseButtonHeld && playerStamina.GetStamina() >= staminaDrain) 
+            if (!GetIsDodging() && !rightMouseButtonHeld && playerStamina.GetStamina() >= staminaDrain)
             {
                 rightMouseButtonHeld = true;
                 SetIsDodging(1);
@@ -43,7 +44,7 @@ public class PlayerDodge : MonoBehaviour
             rightMouseButtonHeld = false;
         }
     }
-    
+
     // used in event function
     private void MoveDuringRoll()
     {
@@ -83,12 +84,12 @@ public class PlayerDodge : MonoBehaviour
         transform.Translate(dodgeMovement * translationAmount);
         */
 
-        transform.Translate(dodgeMovement);    
+        transform.Translate(dodgeMovement);
     }
 
     public void SetIsDodging(int flag)
     {
-        if(flag == 1)
+        if (flag == 1)
         {
             animator.SetBool("isDodging", true);
         }
@@ -103,12 +104,12 @@ public class PlayerDodge : MonoBehaviour
         return animator.GetBool("isDodging");
     }
 
-    public void SetStaminaDrain(int staminaDrain) 
+    public void SetStaminaDrain(int staminaDrain)
     {
         this.staminaDrain = staminaDrain;
     }
 
-    public int GetStaminaDrain() 
+    public int GetStaminaDrain()
     {
         return staminaDrain;
     }

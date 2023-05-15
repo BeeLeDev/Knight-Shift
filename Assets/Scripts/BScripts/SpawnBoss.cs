@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+THIS SCRIPT NEEDS A MORE GENERAL USE CASE, ITS SPECIFIC FOR TESTING FOR NOW
+*/
+
 public class SpawnBoss : MonoBehaviour
 {
     public GameObject boss;
-
-    // Update is called once per frame
-    void Update()
-    { 
-        // if there are no spawner & enemies left, spawn the boss
-        if (
-            GameObject.FindGameObjectsWithTag("MeleeEnemy").Length == 0 && 
-            GameObject.FindGameObjectsWithTag("RangedEnemy").Length == 0)
+    public Vector3 position;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player" && GameObject.FindGameObjectsWithTag("SpawnTrigger").Length == 1)
         {
-            // spawn boss
-            Instantiate(boss, transform.position, transform.rotation);
+            Instantiate(boss, position, boss.transform.rotation);
             Destroy(gameObject);
         }
-        
     }
 }

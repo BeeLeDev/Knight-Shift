@@ -6,13 +6,14 @@ public class PlayerAttack : MonoBehaviour
     public GameObject attackHitbox;
     // how much stamina dodging drains
     public int staminaDrain;
-    
+
     private GameObject existingHitbox;
     private PlayerStamina playerStamina;
     private Animator animator;
     private bool leftMouseButtonHeld = false;
 
-    private void Start() {
+    private void Start()
+    {
         playerStamina = GetComponent<PlayerStamina>();
         animator = GetComponent<Animator>();
     }
@@ -25,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
         {
             // check if the hitbox collided with anything
             // if so deal damage to that object that collided with the attack
-            if (!GetIsAttacking() && !leftMouseButtonHeld && playerStamina.GetStamina() >= staminaDrain) 
+            if (!GetIsAttacking() && !leftMouseButtonHeld && playerStamina.GetStamina() >= staminaDrain)
             {
                 leftMouseButtonHeld = true;
                 SetIsAttacking(1);
@@ -44,10 +45,10 @@ public class PlayerAttack : MonoBehaviour
     // for some reason Unity doesn't accept functions with bool parameters as function events so i am changing it to an int
     public void SetIsAttacking(int flag)
     {
-        if(flag == 1)
+        if (flag == 1)
         {
             animator.SetBool("isAttacking", true);
-            
+
         }
         else
         {
@@ -64,8 +65,8 @@ public class PlayerAttack : MonoBehaviour
     private void CreateHitbox()
     {
         // facing right
-        existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.411f) , transform.position.y + (-0.101f), 0), attackHitbox.transform.rotation);
-            
+        existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.411f), transform.position.y + (-0.101f), 0), attackHitbox.transform.rotation);
+
         // facing left
         if (GetComponent<Player>().GetIsFlipped())
         {
@@ -83,12 +84,12 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    public void SetStaminaDrain(int staminaDrain) 
+    public void SetStaminaDrain(int staminaDrain)
     {
         this.staminaDrain = staminaDrain;
     }
 
-    public int GetStaminaDrain() 
+    public int GetStaminaDrain()
     {
         return staminaDrain;
     }

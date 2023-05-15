@@ -64,7 +64,7 @@ public class Enemy : Character
 
     public void SetIsStaggering(int flag)
     {
-        if(flag == 1)
+        if (flag == 1)
         {
             animator.SetBool("isStaggering", true);
         }

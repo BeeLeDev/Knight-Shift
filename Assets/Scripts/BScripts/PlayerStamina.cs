@@ -20,15 +20,15 @@ public class PlayerStamina : MonoBehaviour
     // set to private when not testing
     private int currentStamina;
     private float restoreTimer = 0f;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerAttack = GetComponent<PlayerAttack>();
         playerDodge = GetComponent<PlayerDodge>();
-        currentStamina = maxStamina; 
-        
+        currentStamina = maxStamina;
+
     }
 
     // Update is called once per frame
@@ -48,17 +48,17 @@ public class PlayerStamina : MonoBehaviour
             if (restoreTimer >= restoreInterval)
             {
                 IncreaseStamina(restoreAmount);
-                restoreTimer = 0;  
+                restoreTimer = 0;
             }
         }
     }
 
-    public int GetMaxStamina() 
+    public int GetMaxStamina()
     {
         return maxStamina;
     }
 
-    public void SetMaxStamina(int maxStamina) 
+    public void SetMaxStamina(int maxStamina)
     {
         this.maxStamina = maxStamina;
     }

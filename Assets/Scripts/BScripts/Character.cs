@@ -28,25 +28,27 @@ public class Character : MonoBehaviour
     // Character face direction: false - Right, true - Left
     private bool isFlipped = false;
 
-    protected virtual void OnTriggerEnter2D(Collider2D other) {
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
         // allows attacks to hit the Character under conditions
         if (other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
-            hitFlag = true;
 
             // Enemies being hit by Player is implemented in Enemy class
 
             // this is extremely bad code, temporary for now
             // if Player hit by Enemy
             if (
-                other.name == "EnemyMeleeAttackHitbox(Clone)" || 
+                other.name == "EnemyMeleeAttackHitbox(Clone)" ||
                 other.name == "EnemyRangedProjectile(Clone)" ||
-                other.name == "BossAttackHitbox(Clone)"||
-                other.name == "BossSpinHitbox(Clone)"||
-                other.name == "BossExplosionHitbox(Clone)"||
+                other.name == "BossAttackHitbox(Clone)" ||
+                other.name == "BossSpinHitbox(Clone)" ||
+                other.name == "BossExplosionHitbox(Clone)" ||
                 other.name == "BossSpecialHitbox(Clone)"
                 )
             {
+                hitFlag = true;
+
                 // this is bad code, it won't work if there are more than one type of "MeleeEnemy" or "RangedEnemy"
                 // this is only temporary so it's fine for now
                 if (other.name == "EnemyMeleeAttackHitbox(Clone)")
@@ -57,21 +59,21 @@ public class Character : MonoBehaviour
                 {
                     TakeDamage(GameObject.FindGameObjectWithTag("RangedEnemy").GetComponent<Enemy>().GetDamage());
                 }
-                else if 
+                else if
                 (
-                    other.name == "BossAttackHitbox(Clone)"||
-                    other.name == "BossSpinHitbox(Clone)"||
-                    other.name == "BossExplosionHitbox(Clone)"||
+                    other.name == "BossAttackHitbox(Clone)" ||
+                    other.name == "BossSpinHitbox(Clone)" ||
+                    other.name == "BossExplosionHitbox(Clone)" ||
                     other.name == "BossSpecialHitbox(Clone)"
                     )
                 {
                     TakeDamage(GameObject.FindGameObjectWithTag("Boss").GetComponent<Enemy>().GetDamage());
                 }
-                
+
             }
         }
     }
-    
+
     /*
     TODO: Make the character stagger when hit, need animation, make not available to do anything when hit
     */
@@ -99,7 +101,7 @@ public class Character : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
             // change back to specified color
             sprite.color = originalColor;
-            
+
             // can be hit again
             hitFlag = false;
 
@@ -110,8 +112,9 @@ public class Character : MonoBehaviour
         {
             PlayDeathAnimation();
             yield return new WaitForSeconds(3f);
-            //"kill" the character
-            //Destroy(gameObject);
+
+            // removes the character
+            KillCharacter();
         }
     }
 
@@ -120,6 +123,12 @@ public class Character : MonoBehaviour
         //Debug.Log(GetHealth());
         SetHealth(GetHealth() - damage);
         StartCoroutine(OnHit());
+
+    }
+
+    protected virtual void KillCharacter()
+    {
+        Destroy(gameObject);
     }
 
     // this can be changeable to have a default death animation, but most likely all enemies will have different death animations
@@ -127,7 +136,7 @@ public class Character : MonoBehaviour
     {
         // default when facing right, they fall backwards
         float rotateDirection = 90f;
-        
+
         //Debug.Log("Character Death");
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
     }
@@ -141,7 +150,7 @@ public class Character : MonoBehaviour
         {
             rotateDirection *= -1f;
         }
-        
+
         //Debug.Log("Character Death");
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
     }
@@ -155,12 +164,12 @@ public class Character : MonoBehaviour
         {
             rotateDirection *= -1f;
         }
-        
+
         //Debug.Log("Character Death");
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
     }
 
-     // if the Character is flipped, they are looking to the left
+    // if the Character is flipped, they are looking to the left
     public bool GetIsFlipped()
     {
         return isFlipped;
@@ -171,7 +180,7 @@ public class Character : MonoBehaviour
         this.isFlipped = isFlipped;
     }
 
-    public int GetHealth() 
+    public int GetHealth()
     {
         return health;
     }
@@ -203,7 +212,7 @@ public class Character : MonoBehaviour
         {
             this.damage = 0;
         }
-        else 
+        else
         {
             this.damage = damage;
         }
@@ -222,7 +231,7 @@ public class Character : MonoBehaviour
         {
             this.moveSpeed = 0f;
         }
-        else 
+        else
         {
             this.moveSpeed = speed;
         }

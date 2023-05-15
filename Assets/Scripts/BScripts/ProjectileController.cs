@@ -7,20 +7,20 @@ public class ProjectileController : MonoBehaviour
     // damage the projectile does to the Character
     public int damage = 1;
     // speed in which the arrow travels
-    public float projectileSpeed = 10f; 
+    public float projectileSpeed = 10f;
     private GameObject player;
     private Vector2 direction;
 
-    private void Start() 
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        
+
         // want one direction, keeping it the same without changing
         direction = (player.transform.position - transform.position).normalized;
 
     }
 
-    private void Update() 
+    private void Update()
     {
         // Calculate the direction to the player
 
@@ -32,7 +32,7 @@ public class ProjectileController : MonoBehaviour
         transform.Translate(direction * projectileSpeed * Time.deltaTime, Space.World);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    private void OnCollisionEnter2D(Collision2D other)
     {
         // damage Player if it hits the Player
         if (other.gameObject.tag == "Player")

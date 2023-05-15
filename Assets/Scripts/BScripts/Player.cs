@@ -36,7 +36,7 @@ public class Player : Character
         {
             rotateDirection *= -1;
         }
-        
+
         transform.RotateAround(transform.position, Vector3.forward, rotateDirection);
 
         // replace with a death animation
@@ -46,5 +46,10 @@ public class Player : Character
         Destroy(GetComponent<PlayerMovement>());
         Destroy(GetComponent<PlayerAttack>());
         Destroy(GetComponent<PlayerDodge>());
+    }
+
+    protected override void KillCharacter()
+    {
+        // don't do anything, bad code, temporary
     }
 }

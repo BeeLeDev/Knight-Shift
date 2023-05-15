@@ -15,8 +15,9 @@ public class EnemyAttack : MonoBehaviour
     // assuming the monster is not spawned in front of the Enemy
     // NOTE: i wonder if spawning inside the object counts as a collision, need to test, if so we can keep this false
     private bool playerInRange = false;
-    
-    private void Start() {
+
+    private void Start()
+    {
         animator = GetComponent<Animator>();
     }
 
@@ -24,7 +25,7 @@ public class EnemyAttack : MonoBehaviour
     void Update()
     {
         attackTimer += Time.deltaTime;
-        if (!GetIsAttacking() && GetPlayerInRange() && attackTimer > attackInterval) 
+        if (!GetIsAttacking() && GetPlayerInRange() && attackTimer > attackInterval)
         {
             // this is bad code, temporary
             if (tag == "Boss")
@@ -44,7 +45,7 @@ public class EnemyAttack : MonoBehaviour
     // for some reason Unity doesn't accept functions with bool parameters as function events so i am changing it to an int
     public void SetIsAttacking(int flag)
     {
-        if(flag == 1)
+        if (flag == 1)
         {
             animator.SetBool("isAttacking", true);
         }
@@ -72,8 +73,8 @@ public class EnemyAttack : MonoBehaviour
         if (tag == "MeleeEnemy")
         {
             // facing right
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.679f) , transform.position.y + (-0.451f), 0), attackHitbox.transform.rotation);
-            
+            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.679f), transform.position.y + (-0.451f), 0), attackHitbox.transform.rotation);
+
             // facing left
             if (GetComponent<Enemy>().GetIsFlipped())
             {
@@ -83,7 +84,7 @@ public class EnemyAttack : MonoBehaviour
         else if (tag == "RangedEnemy")
         {
             // facing right
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.5f) , transform.position.y, 0), attackHitbox.transform.rotation);
+            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.5f), transform.position.y, 0), attackHitbox.transform.rotation);
 
             // facing left
             if (GetComponent<Enemy>().GetIsFlipped())
@@ -94,7 +95,7 @@ public class EnemyAttack : MonoBehaviour
         else if (tag == "Boss")
         {
             // facing right
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (1.092f) , transform.position.y + (-1.417f), 0), attackHitbox.transform.rotation);
+            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (1.092f), transform.position.y + (-1.417f), 0), attackHitbox.transform.rotation);
 
             // facing left
             if (GetComponent<Enemy>().GetIsFlipped())

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackRangeDetection : MonoBehaviour
-{    
-    private void OnTriggerEnter2D(Collider2D other) 
+{
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -13,7 +13,7 @@ public class AttackRangeDetection : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) 
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {

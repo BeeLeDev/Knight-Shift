@@ -9,7 +9,8 @@ public class EnemyMovement : MonoBehaviour
     private Animator animator;
     private CircleCollider2D attackRange;
 
-    private void Start() {
+    private void Start()
+    {
         enemy = GetComponent<Enemy>();
         animator = GetComponent<Animator>();
         attackRange = GetComponentInChildren<CircleCollider2D>();
@@ -22,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
         if (EnemyCanMove())
         {
             FacePlayer();
-            
+
             // move to Player if not in range, else attack
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
 
@@ -32,10 +33,10 @@ public class EnemyMovement : MonoBehaviour
                 animator.SetFloat("Speed", 1);
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.GetMoveSpeed() * Time.deltaTime);
             }
-            else 
+            else
             {
                 animator.SetFloat("Speed", 0);
-            }   
+            }
         }
     }
 
