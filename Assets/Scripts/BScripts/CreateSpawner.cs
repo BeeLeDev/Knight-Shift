@@ -12,7 +12,7 @@ public class CreateSpawner : MonoBehaviour
     public Vector3 position;
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.tag == "Player")
         {
             Instantiate(spawner, position, spawner.transform.rotation);
             Destroy(gameObject);

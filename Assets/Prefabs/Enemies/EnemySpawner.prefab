@@ -100,5 +100,5 @@ MonoBehaviour:
   enemyList:
   - {fileID: 2152849192391645216, guid: de0934a10e715b1488defd8198e88be9, type: 3}
   - {fileID: 226855545485163644, guid: 48ae4ea3745a33a49950def51775784e, type: 3}
-  spawnAmount: 3
+  spawnAmount: 5
   spawnTimeInterval: 0.5
