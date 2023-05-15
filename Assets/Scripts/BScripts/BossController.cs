@@ -7,22 +7,16 @@ public class BossController : MonoBehaviour
     // i'll make this better instead of hardcoding it, bad code, temporary
     public AudioClip[] audioClips;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     public GameObject spinHitbox;
     public GameObject explosionHitbox;
     public GameObject specialHitbox;
     private GameObject existingHitbox;
 
-        private void Start()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
-        if (audioClips.Length > 0)
-        {
-            // set the first audio clip to play
-            audioSource.clip = audioClips[0];
-        }
     }
 
     private void PlaySpecialSound()
@@ -31,9 +25,9 @@ public class BossController : MonoBehaviour
         audioSource.Play();
     }
 
-    private void ResetSound()
+    private void ResetSound(int i)
     {
-        audioSource.clip = audioClips[0];
+        audioSource.clip = audioClips[i];
     }
 
     private void CreateSpinHitbox()

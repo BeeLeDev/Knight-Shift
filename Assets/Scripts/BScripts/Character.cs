@@ -116,6 +116,7 @@ public class Character : MonoBehaviour
             // removes the character
             KillCharacter();
         }
+
     }
 
     public virtual void TakeDamage(int damage)
