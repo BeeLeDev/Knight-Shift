@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6383256248037445036}
   m_Layer: 0
   m_Name: SpawnerTrigger
-  m_TagString: Obstacle
+  m_TagString: SpawnTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6383256248037445009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6383256248037445009}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.6320754, g: 0.3428711, b: 0.57362455, a: 0.5882353}
   m_FlipX: 0
@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a035d21aa0f047a4d8ad15fc14df006e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 1424743578541014673, guid: 08036c508deefe24a90d61c2bd714c1e, type: 3}
+  spawner: {fileID: 0}
   position: {x: 0, y: 0, z: 0}

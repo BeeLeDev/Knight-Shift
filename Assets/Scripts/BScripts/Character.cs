@@ -29,10 +29,10 @@ public class Character : MonoBehaviour
     private bool isFlipped = false;
 
     protected virtual void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log(hitFlag);
         // allows attacks to hit the Character under conditions
         if (other.CompareTag("Hit") && GetHealth() > 0 && !hitFlag)
         {
-            hitFlag = true;
 
             // Enemies being hit by Player is implemented in Enemy class
 
@@ -47,6 +47,8 @@ public class Character : MonoBehaviour
                 other.name == "BossSpecialHitbox(Clone)"
                 )
             {
+                hitFlag = true;
+
                 // this is bad code, it won't work if there are more than one type of "MeleeEnemy" or "RangedEnemy"
                 // this is only temporary so it's fine for now
                 if (other.name == "EnemyMeleeAttackHitbox(Clone)")
@@ -101,7 +103,11 @@ public class Character : MonoBehaviour
             sprite.color = originalColor;
             
             // can be hit again
+            Debug.Log(hitFlag);
+
             hitFlag = false;
+            Debug.Log(hitFlag);
+
 
             // maybe use ResetStaggerAnimation() and set hitFlag = false as animation events
             ResetStaggerAnimation();
@@ -121,6 +127,7 @@ public class Character : MonoBehaviour
         //Debug.Log(GetHealth());
         SetHealth(GetHealth() - damage);
         StartCoroutine(OnHit());
+
     }
 
     protected virtual void KillCharacter()

@@ -8,14 +8,15 @@ THIS SCRIPT NEEDS A MORE GENERAL USE CASE, ITS SPECIFIC FOR TESTING FOR NOW
 
 public class CreateBossSpawner : MonoBehaviour
 {
-    public GameObject spawner;
+    public GameObject boss;
     public Vector3 position;
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.name == "Player" && !GameObject.Find("SpawnerTrigger"))
+        if (other.gameObject.name == "Player" && GameObject.FindGameObjectsWithTag("SpawnTrigger").Length == 1)
         {
-            Instantiate(spawner, position, spawner.transform.rotation);
-            Destroy(gameObject);
+            Instantiate(boss, position, boss.transform.rotation);
+            GetComponent<BoxCollider2D>().enabled = false;
+            //Destroy(gameObject);
         }
     }
 }
