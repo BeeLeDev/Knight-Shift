@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
 
     public GameObject attackHitbox;
-    
+    // how much stamina dodging drains
+    public int staminaDrain;
+
     private GameObject existingHitbox;
-    private PlayerMovement playerMovement;
+    private PlayerStamina playerStamina;
     private Animator animator;
     private bool leftMouseButtonHeld = false;
 
-    private void Start() {
-        playerMovement = GetComponent<PlayerMovement>();
+    private void Start()
+    {
+        playerStamina = GetComponent<PlayerStamina>();
         animator = GetComponent<Animator>();
     }
 
@@ -25,14 +26,12 @@ public class PlayerAttack : MonoBehaviour
         {
             // check if the hitbox collided with anything
             // if so deal damage to that object that collided with the attack
-            if (!GetIsAttacking() && !leftMouseButtonHeld) 
+            if (!GetIsAttacking() && !leftMouseButtonHeld && playerStamina.GetStamina() >= staminaDrain)
             {
                 leftMouseButtonHeld = true;
                 SetIsAttacking(1);
+                playerStamina.DecreaseStamina(staminaDrain);
             }
-            //StartCoroutine(WaitForAnimationFinish(.5f));
-            //StartCoroutine(WaitForAnimationFinish(9));
-            //Debug.Log(("no attack"));
         }
 
         // checks to see if the Player lifted mouse indicating they are not holding the left button
@@ -46,9 +45,10 @@ public class PlayerAttack : MonoBehaviour
     // for some reason Unity doesn't accept functions with bool parameters as function events so i am changing it to an int
     public void SetIsAttacking(int flag)
     {
-        if(flag == 1)
+        if (flag == 1)
         {
             animator.SetBool("isAttacking", true);
+
         }
         else
         {
@@ -64,18 +64,13 @@ public class PlayerAttack : MonoBehaviour
     // used in event function
     private void CreateHitbox()
     {
+        // facing right
+        existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.411f), transform.position.y + (-0.101f), 0), attackHitbox.transform.rotation);
+
         // facing left
         if (GetComponent<Player>().GetIsFlipped())
         {
-            // hitbox.transform.RotateAround(hitbox.transform.position, Vector3.right, 180f);
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x - (0.578f), transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
-
-            existingHitbox.transform.RotateAround(existingHitbox.transform.position, Vector3.up, 180f);
-        }
-        // facing right
-        else
-        {
-            existingHitbox = Instantiate(attackHitbox, new Vector3(transform.position.x + (0.578f) , transform.position.y + (0.043f), 0), attackHitbox.transform.rotation);
+            existingHitbox.transform.RotateAround(transform.position, Vector3.up, 180f);
         }
     }
 
@@ -87,5 +82,15 @@ public class PlayerAttack : MonoBehaviour
         {
             Destroy(existingHitbox);
         }
+    }
+
+    public void SetStaminaDrain(int staminaDrain)
+    {
+        this.staminaDrain = staminaDrain;
+    }
+
+    public int GetStaminaDrain()
+    {
+        return staminaDrain;
     }
 }

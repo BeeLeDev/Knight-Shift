@@ -1,39 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDodge : MonoBehaviour
 {
     // how much the Player moves when dodging
     public float translationAmount;
+    // how much stamina dodging drains
+    public int staminaDrain;
 
     private PlayerMovement playerMovement;
+    private PlayerStamina playerStamina;
     private Animator animator;
-    private PolygonCollider2D originalHitbox;
     private bool rightMouseButtonHeld = false;
-    
-    private void Start() {
+
+    private void Start()
+    {
         playerMovement = GetComponent<PlayerMovement>();
+        playerStamina = GetComponent<PlayerStamina>();
         animator = GetComponent<Animator>();
-        originalHitbox = GetComponent<PolygonCollider2D>();
     }
+
+    /*
+    TODO: Show the Player's current # of available dodges
+    */
 
     // Update is called once per frame
     void Update()
     {
-        // left click
+        // right click
         if (Input.GetMouseButtonDown(1))
         {
-            // check if the hitbox collided with anything
-            // if so deal damage to that object that collided with the attack
-            if (!GetIsDodging() && !rightMouseButtonHeld) 
+            // only dodge if the Player is currently not dodging, and not holding right click, and has enough stamina
+            if (!GetIsDodging() && !rightMouseButtonHeld && playerStamina.GetStamina() >= staminaDrain)
             {
                 rightMouseButtonHeld = true;
                 SetIsDodging(1);
+                playerStamina.DecreaseStamina(staminaDrain);
             }
-            //StartCoroutine(WaitForAnimationFinish(.5f));
-            //StartCoroutine(WaitForAnimationFinish(9));
-            //Debug.Log(("no attack"));
         }
 
         // checks to see if the Player lifted mouse indicating they are not holding the left button
@@ -41,14 +43,8 @@ public class PlayerDodge : MonoBehaviour
         {
             rightMouseButtonHeld = false;
         }
-
-        
     }
 
-    /*
-    TODO: Eventually, create a stamina bar that allows the Player to dodge if they have enough stamina
-    */
-    
     // used in event function
     private void MoveDuringRoll()
     {
@@ -88,12 +84,12 @@ public class PlayerDodge : MonoBehaviour
         transform.Translate(dodgeMovement * translationAmount);
         */
 
-        transform.Translate(dodgeMovement);    
+        transform.Translate(dodgeMovement);
     }
 
     public void SetIsDodging(int flag)
     {
-        if(flag == 1)
+        if (flag == 1)
         {
             animator.SetBool("isDodging", true);
         }
@@ -106,5 +102,15 @@ public class PlayerDodge : MonoBehaviour
     public bool GetIsDodging()
     {
         return animator.GetBool("isDodging");
+    }
+
+    public void SetStaminaDrain(int staminaDrain)
+    {
+        this.staminaDrain = staminaDrain;
+    }
+
+    public int GetStaminaDrain()
+    {
+        return staminaDrain;
     }
 }

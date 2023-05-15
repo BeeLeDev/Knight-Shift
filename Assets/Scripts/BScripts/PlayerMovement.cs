@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private float lastHorizontalInput;
     private float lastVerticalInput;
 
-    private void Start() {
+    private void Start()
+    {
         player = GetComponent<Player>();
         animator = GetComponent<Animator>();
     }
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         // inputs to move vertically
         verticalInput = Input.GetAxisRaw("Vertical");
-        
+
         animator.SetFloat("Speed", new Vector2(horizontalInput, verticalInput).sqrMagnitude);
 
         // Move the player
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 // we normalize the movements otherwise the speed when moving diagonal would account for both inputs making it go faster
                 transform.Translate(new Vector2(-horizontalInput, verticalInput).normalized * player.GetMoveSpeed() * Time.deltaTime);
-                
+
             }
             else
             {

@@ -1,6 +1,9 @@
 Knight Sprite
 https://pixivan.itch.io/knight-hero-platfor
 
+Skeleton Sprite
+https://jesse-m.itch.io/skeleton-pack
+
 For Top Down Movement
 https://www.youtube.com/watch?v=whzomFgjT50
 https://www.youtube.com/watch?v=u8tot-X_RBI

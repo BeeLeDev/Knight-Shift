@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Knight Testing.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/NexusHub.unity
+    guid: 1f05989471032aa46bd15871f08aa659
+  - enabled: 1
+    path: Assets/Scenes/Dungeon0.unity
+    guid: 21018ba900fbe5741bff7e1d7ddd8e0a
   m_configObjects: {}

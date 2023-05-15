@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
+  - Hit
+  - MeleeEnemy
+  - RangedEnemy
+  - Spawner
+  - Boss
+  - SpawnTrigger
   layers:
   - Default
   - TransparentFX
@@ -11,10 +18,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Hitbox
+  - RangeDetector
   - 
   - 
   - 
