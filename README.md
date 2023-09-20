@@ -17,3 +17,6 @@ The player traverses through different levels in increasing difficulty fighting 
 - Shop/Upgrade system
 - Fast-Paced
 
+## Demo Videos
+https://youtu.be/CSGzmRtBHME <br>
+https://youtu.be/wDPDKN4x8ko
